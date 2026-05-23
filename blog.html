@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Greg's Cloud Security Insights</title>
+    <meta name="description" content="Cloud security frameworks, decision records, and leadership lessons from multi-cloud migration at scale.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #0066cc;
+            --color-primary-dark: #004499;
+            --color-bg: #ffffff;
+            --color-bg-alt: #f8f9fa;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #666666;
+            --color-border: #e0e0e0;
+            --color-accent: #00a8e8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #0f1419;
+                --color-bg-alt: #1a1f2e;
+                --color-text: #e8e8e8;
+                --color-text-secondary: #b0b0b0;
+                --color-border: #333333;
+            }
+        }
+        
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            background: var(--color-bg-alt);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        nav a:hover {
+            border-bottom-color: var(--color-primary);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .blog-header {
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .blog-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--color-border);
+            background: var(--color-bg);
+            color: var(--color-text);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+        
+        .filter-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+        
+        .posts {
+            padding: 2rem 0;
+        }
+        
+        .post {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .post:last-child {
+            border-bottom: none;
+        }
+        
+        .post-header {
+            margin-bottom: 1rem;
+        }
+        
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+        }
+        
+        .post-category {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .post-title {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+        }
+        
+        .post-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .post-title a:hover {
+            color: var(--color-primary);
+        }
+        
+        .post-excerpt {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: gap 0.2s;
+        }
+        
+        .read-more:hover {
+            gap: 0.75rem;
+        }
+        
+        footer {
+            background: var(--color-bg-alt);
+            border-top: 1px solid var(--color-border);
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: var(--color-text-secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            nav ul {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+            
+            .filters {
+                margin: 1.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Greg's Blog</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="frameworks.html">Frameworks & Guides</a></li>
+            <li><a href="decision-records.html">Decision Records</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <section class="blog-header">
+            <h2>Cloud Security Insights & Frameworks</h2>
+            <p>Pragmatic governance, defensible decisions, and lessons from multi-cloud migration at scale.</p>
+        </section>
+        
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterPosts('all')">All Posts</button>
+            <button class="filter-btn" onclick="filterPosts('governance')">Cloud Governance</button>
+            <button class="filter-btn" onclick="filterPosts('frameworks')">Frameworks</button>
+            <button class="filter-btn" onclick="filterPosts('case-studies')">Case Studies</button>
+            <button class="filter-btn" onclick="filterPosts('leadership')">Leadership</button>
+            <button class="filter-btn" onclick="filterPosts('emerging-tech')">Emerging Tech</button>
+        </div>
+        
+        <section class="posts" id="posts-container">
+            <article class="post" data-category="frameworks">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-category">Frameworks</span>
+                        <span>Coming soon</span>
+                    </div>
+                </div>
+                <h3 class="post-title">Building a Three-Archetype Cloud Governance Model at Scale</h3>
+                <p class="post-excerpt">
+                    How to segment your cloud environment into operationally distinct archetypes. Why Private, Online-Connected, and Online-Disconnected matter. How to avoid one-size-fits-all governance that breaks on contact with real requirements. This is the foundation of everything we do.
+                </p>
+                <a href="#" class="read-more">Read the article →</a>
+            </article>
+            
+            <article class="post" data-category="governance">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-category">Governance</span>
+                        <span>Coming soon</span>
+                    </div>
+                </div>
+                <h3 class="post-title">Cloud Security as Enablement, Not Obstruction</h3>
+                <p class="post-excerpt">
+                    The security blocker stigma is real. It's also avoidable. What creates the perception, how to shift it, and how to make "no" into "yes, here's how." Includes the risk-to-traceability-to-acceptability decision logic that makes judgment defensible and visible.
+                </p>
+                <a href="#" class="read-more">Read the article →</a>
+            </article>
+            
+            <article class="post" data-category="emerging-tech">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-category">Emerging Tech</span>
+                        <span>Coming soon</span>
+                    </div>
+                </div>
+                <h3 class="post-title">Why We Blocked All AI Cloud Deployments (And What We Did Instead)</h3>
+                <p class="post-excerpt">
+                    Technology immaturity is a legitimate security blocker. Undefined threat models, immature controls, absent team capability—these are defensible reasons to say no. How we structured this decision, what we required to say yes, and what we learned. Includes the immaturity threshold model.
+                </p>
+                <a href="#" class="read-more">Read the article →</a>
+            </article>
+            
+            <article class="post" data-category="leadership">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-category">Leadership</span>
+                        <span>Coming soon</span>
+                    </div>
+                </div>
+                <h3 class="post-title">Making Invisible Security Work Visible: Documentation as Organizational Credibility</h3>
+                <p class="post-excerpt">
+                    The work you do to influence stakeholders, align competing priorities, and make defensible judgments is often invisible to decision-makers. How to systematically document it. Why visibility builds credibility without requiring political maneuvering. Includes the decision record template.
+                </p>
+                <a href="#" class="read-more">Read the article →</a>
+            </article>
+            
+            <article class="post" data-category="frameworks">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-category">Frameworks</span>
+                        <span>Coming soon</span>
+                    </div>
+                </div>
+                <h3 class="post-title">Multi-Cloud Control Mapping: Making Azure, AWS, and GCP Speak the Same Language</h3>
+                <p class="post-excerpt">
+                    Cloud-agnostic security frameworks are harder than they look. How to map controls across platforms. Service equivalence matrices. Implementation guidance specific to each provider. Why "it works on Azure" isn't enough anymore.
+                </p>
+                <a href="#" class="read-more">Read the article →</a>
+            </article>
+            
+            <article class="post" data-category="case-studies">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-category">Case Studies</span>
+                        <span>Coming soon</span>
+                    </div>
+                </div>
+                <h3 class="post-title">Migrating 2,500 People to Azure: Stakeholder Alignment Without Political Maneuvering</h3>
+                <p class="post-excerpt">
+                    How we brought 40+ teams with competing priorities into alignment on cloud security governance. What worked. What didn't. How we translated risk concepts to different audiences. And why documenting the invisible work matters more than you think.
+                </p>
+                <a href="#" class="read-more">Read the article →</a>
+            </article>
+            
+            <article class="post" data-category="governance">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-category">Governance</span>
+                        <span>Coming soon</span>
+                    </div>
+                </div>
+                <h3 class="post-title">The Stakeholder Translation Matrix: How to Speak Security to Everyone</h3>
+                <p class="post-excerpt">
+                    CSOs care about critical risk numbers. App teams care about implementation friction. Architects care about design principles. Same framework, different language. How to build and use a stakeholder translation matrix to increase adoption without diluting rigor.
+                </p>
+                <a href="#" class="read-more">Read the article →</a>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Greg | Cloud Security Officer &amp; Architect</p>
+        <p>New posts coming throughout 2025. Sign up below or check back regularly.</p>
+    </footer>
+    
+    <script>
+        function filterPosts(category) {
+            const posts = document.querySelectorAll('.post');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter posts
+            posts.forEach(post => {
+                if (category === 'all' || post.dataset.category === category) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

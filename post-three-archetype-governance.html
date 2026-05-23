@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a Three-Archetype Cloud Governance Model — Greg's Cloud Security</title>
+    <meta name="description" content="How to segment cloud environments into operationally distinct archetypes. Why Private, Online-Connected, and Online-Disconnected matter for governance.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #0066cc;
+            --color-primary-dark: #004499;
+            --color-bg: #ffffff;
+            --color-bg-alt: #f8f9fa;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #666666;
+            --color-border: #e0e0e0;
+            --color-accent: #00a8e8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #0f1419;
+                --color-bg-alt: #1a1f2e;
+                --color-text: #e8e8e8;
+                --color-text-secondary: #b0b0b0;
+                --color-border: #333333;
+            }
+        }
+        
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            background: var(--color-bg-alt);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        nav a:hover {
+            border-bottom-color: var(--color-primary);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        article {
+            padding: 2rem 0;
+        }
+        
+        .post-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--color-border);
+        }
+        
+        .post-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+        
+        .post-category {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 0.35rem 0.85rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        h1.post-title {
+            font-size: 2rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--color-text);
+            line-height: 1.3;
+        }
+        
+        .post-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--color-text);
+            border-bottom: 2px solid var(--color-border);
+            padding-bottom: 0.75rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--color-text);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+        
+        .highlight-box {
+            background: var(--color-bg-alt);
+            border-left: 4px solid var(--color-primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .highlight-box h4 {
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-secondary);
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        code {
+            background: var(--color-bg-alt);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--color-primary);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--color-text-secondary);
+        }
+        
+        thead {
+            background: var(--color-bg-alt);
+        }
+        
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--color-text);
+            border-bottom: 2px solid var(--color-border);
+        }
+        
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .key-takeaway {
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(0, 168, 232, 0.05) 100%);
+            border: 2px solid var(--color-primary);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .key-takeaway h4 {
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .key-takeaway p {
+            margin: 0;
+        }
+        
+        footer {
+            background: var(--color-bg-alt);
+            border-top: 1px solid var(--color-border);
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .back-to-blog {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-to-blog:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            nav ul {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+            
+            h1.post-title {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Greg's Blog</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="frameworks.html">Frameworks & Guides</a></li>
+            <li><a href="decision-records.html">Decision Records</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <article>
+            <a href="blog.html" class="back-to-blog">← Back to blog</a>
+            
+            <div class="post-header">
+                <div class="post-meta">
+                    <span class="post-category">Frameworks</span>
+                    <span>May 2025</span>
+                </div>
+                <h1 class="post-title">Building a Three-Archetype Cloud Governance Model</h1>
+                <p class="post-subtitle">How to segment your cloud environment into operationally distinct archetypes so governance doesn't break on contact with reality.</p>
+            </div>
+            
+            <h2>The Problem with One-Size-Fits-All Cloud Governance</h2>
+            <p>
+                Most organizations start cloud security governance with a single policy applied uniformly: "all workloads must do X." This works until it doesn't—usually around workload 15, when you realize that a regulated payment system and a dev/test sandbox have fundamentally different risk profiles.
+            </p>
+            <p>
+                Then you spend six months building exceptions, carving out special cases, and defending arbitrary judgment calls. By the time you're done, your framework is a mess of conditional logic and nobody's sure what applies where.
+            </p>
+            <p>
+                There's a better way: segment your cloud environment into distinct archetypes at the start, build purpose-specific controls for each, and let that clarity drive everything downstream.
+            </p>
+            
+            <h2>Introducing the Three-Archetype Model</h2>
+            <p>
+                The three archetypes are <code>Private</code>, <code>Online-Connected</code>, and <code>Online-Disconnected</code>. Each represents a fundamentally different threat model and control posture.
+            </p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Archetype</th>
+                            <th>Definition</th>
+                            <th>Risk Profile</th>
+                            <th>Example Workloads</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Private</strong></td>
+                            <td>Isolated, network-restricted, highly regulated</td>
+                            <td>High impact, strict compliance, sensitive data</td>
+                            <td>Payment systems, regulated data, HR records, IP storage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Online-Connected</strong></td>
+                            <td>Internal connectivity, controlled access, hybrid integration</td>
+                            <td>Medium impact, standard compliance, internal focus</td>
+                            <td>Internal tools, line-of-business apps, shared services</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Online-Disconnected</strong></td>
+                            <td>Cloud-native, public-ready, no internal network dependency</td>
+                            <td>Lower impact, cloud-optimized, customer-facing</td>
+                            <td>Public websites, SaaS apps, analytics, cloud-native services</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>Private Archetype: Maximum Control, Minimum Connectivity</h3>
+            <p>
+                This is your high-security zone. Workloads that process sensitive data, maintain regulatory compliance, or store intellectual property. The goal: isolation and observability.
+            </p>
+            <div class="highlight-box">
+                <h4>Example Controls</h4>
+                <ul>
+                    <li>Network: Private endpoints, no internet access by default, restrictive NSGs</li>
+                    <li>Identity: MFA mandatory, Conditional Access on sensitive operations</li>
+                    <li>Data: Encryption in transit and at rest, immutable audit logs</li>
+                    <li>Governance: Explicit approval for all resource creation, regular penetration testing</li>
+                </ul>
+            </div>
+            
+            <h3>Online-Connected Archetype: Internal Connectivity with Guardrails</h3>
+            <p>
+                This is your hybrid zone. Workloads that need internal connectivity but aren't high-impact. Internal tools, line-of-business applications, shared services. The goal: controlled access, standard controls.
+            </p>
+            <div class="highlight-box">
+                <h4>Example Controls</h4>
+                <ul>
+                    <li>Network: VPN/ExpressRoute access, controlled routing, NSG rules enforce least privilege</li>
+                    <li>Identity: MFA for privileged access, SSO for user access</li>
+                    <li>Data: Encryption for data in transit, standard data classification</li>
+                    <li>Governance: Change management, automated compliance monitoring</li>
+                </ul>
+            </div>
+            
+            <h3>Online-Disconnected Archetype: Cloud-Native, Self-Service</h3>
+            <p>
+                This is your public zone. Cloud-native applications, customer-facing services, SaaS integrations. No dependency on on-premises connectivity. The goal: speed with sensible defaults.
+            </p>
+            <div class="highlight-box">
+                <h4>Example Controls</h4>
+                <ul>
+                    <li>Network: Public endpoints allowed, DDoS protection, WAF where appropriate</li>
+                    <li>Identity: Service principals with minimal permissions, rotate credentials regularly</li>
+                    <li>Data: Encryption for sensitive data, less strict residency requirements</li>
+                    <li>Governance: Self-service with automated guardrails, lower approval overhead</li>
+                </ul>
+            </div>
+            
+            <div class="key-takeaway">
+                <h4>Key Insight</h4>
+                <p>
+                    Different workloads have different threat models. Instead of applying identical controls to everything, you segment upfront and build purpose-specific controls. This is simpler, faster, and more defensible than building exceptions later.
+                </p>
+            </div>
+            
+            <h2>Why This Matters Operationally</h2>
+            
+            <h3>Clarity for Teams</h3>
+            <p>
+                Teams know which archetype they're in. If they're building a customer-facing service, they know it's Online-Disconnected. They don't need to wonder which controls apply. They check the framework, implement the controls for their archetype, and move forward.
+            </p>
+            
+            <h3>Easier Governance Decisions</h3>
+            <p>
+                When a team comes asking for an exception, you can root your answer in the archetype model. "Your workload is Online-Disconnected, so it must meet these controls. If you need the controls from Private, that means you're actually high-impact, so let's recategorize." Removes the politics.
+            </p>
+            
+            <h3>Scalable to Multi-Cloud</h3>
+            <p>
+                Once you've defined archetypes, you can implement them consistently across Azure, AWS, and GCP. Private looks different on each platform, but the control objectives are the same. This is the foundation of cloud-agnostic governance.
+            </p>
+            
+            <h3>Resource Allocation</h3>
+            <p>
+                You know where to invest security effort. Private archetype gets the most attention. Online-Disconnected gets sensible defaults with self-service. Resources flow based on risk, not politics.
+            </p>
+            
+            <h2>Implementation: How to Get Started</h2>
+            
+            <h3>Step 1: Inventory Your Current Workloads</h3>
+            <p>
+                Map every active workload into one of the three archetypes. Expect some awkward fits—that's normal. Document why each workload is in its archetype. (Example: "Payment system → Private because it processes financial data.")
+            </p>
+            
+            <h3>Step 2: Define Controls Per Archetype</h3>
+            <p>
+                For each archetype, list the controls you require. Start broad (network, identity, data, governance). Then get specific to your platform (Azure Policy assignments, Conditional Access policies, NSG rules).
+            </p>
+            
+            <h3>Step 3: Document the Decision Framework</h3>
+            <p>
+                Create a simple chart: "If your workload has [characteristic], it goes in [archetype]." Example:
+            </p>
+            <ul>
+                <li>Does it process regulated data? → Private</li>
+                <li>Does it need on-premises access? → Online-Connected</li>
+                <li>Is it cloud-native and public-ready? → Online-Disconnected</li>
+            </ul>
+            
+            <h3>Step 4: Implement the Archetype Controls</h3>
+            <p>
+                Use Azure Policy, AWS Organizations SCPs, or GCP Organization Policies to enforce archetype controls at scale. Start with a few key controls. Expand iteratively based on operational feedback.
+            </p>
+            
+            <h3>Step 5: Communicate Clearly</h3>
+            <p>
+                Teams need to understand the model, know which archetype they're in, and understand what controls apply. Make this explicit. Publish a one-pager. Hold a workshop. Answer questions. The more transparent you are, the faster adoption.
+            </p>
+            
+            <h2>Common Questions</h2>
+            
+            <h3>Q: What if my workload doesn't fit neatly?</h3>
+            <p>
+                <strong>A:</strong> Pick the archetype that matches the highest control requirement. A workload that's mostly cloud-native but processes one sensitive data field should go in Private, not Online-Disconnected. You're defaulting to the stricter controls.
+            </p>
+            
+            <h3>Q: Can I move workloads between archetypes?</h3>
+            <p>
+                <strong>A:</strong> Yes. If a workload's risk profile changes (e.g., it now handles regulated data), move it to the appropriate archetype and implement the required controls. Document the change.
+            </p>
+            
+            <h3>Q: Does this lock teams into specific patterns?</h3>
+            <p>
+                <strong>A:</strong> No. It gives teams clarity on what controls are required, not how to implement them. Teams can still innovate—they just have to meet the control objectives.
+            </p>
+            
+            <h2>What This Enables</h2>
+            
+            <p>
+                With the three-archetype model in place, you can:
+            </p>
+            <ul>
+                <li><strong>Design controls systematically.</strong> Each archetype has a clear control set.</li>
+                <li><strong>Scale governance to 50+ teams.</strong> Teams self-serve based on their archetype; you're not in every decision.</li>
+                <li><strong>Communicate governance simply.</strong> "Which archetype are you in?" is easier than "Let me review your unique requirements."</li>
+                <li><strong>Expand to multi-cloud with confidence.</strong> The archetypes are cloud-agnostic; implementation details change, but the framework holds.</li>
+                <li><strong>Make tradeoffs visible.</strong> "We chose Private for this workload because it processes payment data" is a transparent decision that's easy to defend.</li>
+            </ul>
+            
+            <div class="key-takeaway">
+                <h4>Bottom Line</h4>
+                <p>
+                    Governance at scale requires segmentation. The three-archetype model gives you that segmentation upfront, so you don't spend a year building exceptions and defending arbitrary judgment calls. Start here, and everything downstream becomes clearer.
+                </p>
+            </div>
+            
+            <h2>Next Steps</h2>
+            <p>
+                Ready to implement? Start with these:
+            </p>
+            <ul>
+                <li>Download the three-archetype governance framework from the Frameworks page</li>
+                <li>Map your current workloads into archetypes</li>
+                <li>Document the controls for each archetype using the Control Framework</li>
+                <li>Pilot implementation with one archetype first (I recommend starting with Online-Disconnected for quick wins)</li>
+                <li>Iterate based on operational feedback</li>
+            </ul>
+            <p>
+                Questions? Check the <a href="frameworks.html">Frameworks page</a> for the full implementation guide, or explore the <a href="decision-records.html">Decision Records</a> to see how we structured key decisions around the archetype model.
+            </p>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Greg | Cloud Security Officer &amp; Architect</p>
+        <p>Pragmatic governance. Defensible decisions. Operationalizable frameworks.</p>
+    </footer>
+</body>
+</html>

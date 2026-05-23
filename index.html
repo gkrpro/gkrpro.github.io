@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greg — Cloud Security Governance</title>
+    <meta name="description" content="Cloud Security Officer. Pragmatic governance frameworks. Operationalizable control architectures. Multi-cloud security without the blocker stigma.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #0066cc;
+            --color-primary-dark: #004499;
+            --color-bg: #ffffff;
+            --color-bg-alt: #f8f9fa;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #666666;
+            --color-border: #e0e0e0;
+            --color-accent: #00a8e8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #0f1419;
+                --color-bg-alt: #1a1f2e;
+                --color-text: #e8e8e8;
+                --color-text-secondary: #b0b0b0;
+                --color-border: #333333;
+            }
+        }
+        
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        header .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background: var(--color-bg-alt);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        nav a:hover {
+            border-bottom-color: var(--color-primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero-section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .hero-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        .hero-section p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+        
+        .section-card {
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .section-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 102, 204, 0.1);
+        }
+        
+        .section-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+        }
+        
+        .section-card p {
+            color: var(--color-text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: gap 0.2s;
+        }
+        
+        .section-card a:hover {
+            gap: 0.75rem;
+        }
+        
+        .section-card .arrow {
+            display: inline;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+        
+        .feature-item {
+            padding: 1.5rem;
+            border-left: 4px solid var(--color-primary);
+            background: var(--color-bg-alt);
+            border-radius: 4px;
+        }
+        
+        .feature-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+        
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+        }
+        
+        footer {
+            background: var(--color-bg-alt);
+            border-top: 1px solid var(--color-border);
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .blog-preview {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .blog-post {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .blog-post:last-child {
+            border-bottom: none;
+        }
+        
+        .blog-post h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-post .meta {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-post .category {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.75rem;
+            }
+            
+            nav ul {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Greg</h1>
+        <p class="subtitle">Cloud Security Officer & Architect | Multi-Cloud Governance | Building Pragmatic, Defensible Security</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="frameworks.html">Frameworks & Guides</a></li>
+            <li><a href="decision-records.html">Decision Records</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section class="container hero-section">
+            <h2>Cloud Security Without the Blocker Stigma</h2>
+            <p>
+                I help organizations build cloud security governance that's operationally pragmatic, not theoretically pure. Secure-by-default architectures, multi-cloud control frameworks, and decision-making rigor that turns "no" into "yes, here's how."
+            </p>
+            <p>
+                Three years into leading cloud security for a 2,500-person organization migrating to Azure. I've documented frameworks for mapping risk to controls, building stakeholder alignment across competing priorities, and making judgment calls that are defensible, traceable, and rooted in measurable organizational context.
+            </p>
+            <div class="cta-buttons">
+                <a href="blog.html" class="btn btn-primary">Read Latest Insights</a>
+                <a href="frameworks.html" class="btn btn-secondary">Explore Frameworks</a>
+            </div>
+        </section>
+        
+        <section class="container">
+            <h2 style="margin-top: 2rem; margin-bottom: 2rem;">What I Write About</h2>
+            <div class="sections">
+                <div class="section-card">
+                    <h3>📋 Frameworks & Architecture</h3>
+                    <p>Multi-cloud governance models. Control framework design. Risk-to-control mapping. Practical implementation across Azure, AWS, GCP.</p>
+                    <a href="frameworks.html">Explore frameworks <span class="arrow">→</span></a>
+                </div>
+                <div class="section-card">
+                    <h3>🎯 Decision Records</h3>
+                    <p>Short, structured decision logs. Why we made the call. What changed. Trade-offs accepted. Risk acceptances and compensating controls.</p>
+                    <a href="decision-records.html">Read decision records <span class="arrow">→</span></a>
+                </div>
+                <div class="section-card">
+                    <h3>🔍 Case Studies & Lessons</h3>
+                    <p>Real scenarios from multi-cloud migration. Stakeholder alignment. Maturity progression. What worked, what didn't, what I'd do differently.</p>
+                    <a href="blog.html?category=case-studies">See case studies <span class="arrow">→</span></a>
+                </div>
+                <div class="section-card">
+                    <h3>🌐 Cloud Governance</h3>
+                    <p>Cloud-agnostic security. Archetype-based governance. Azure-first, but broadly applicable patterns. Building security as enablement, not obstruction.</p>
+                    <a href="blog.html?category=governance">Read on governance <span class="arrow">→</span></a>
+                </div>
+                <div class="section-card">
+                    <h3>🚀 Leadership & Influence</h3>
+                    <p>Invisible work documentation. Stakeholder influence mapping. Building credibility without authority. Growing into strategic leadership roles.</p>
+                    <a href="blog.html?category=leadership">Explore leadership <span class="arrow">→</span></a>
+                </div>
+                <div class="section-card">
+                    <h3>🤖 Emerging Tech Security</h3>
+                    <p>AI governance in cloud environments. Technology immaturity as a blocker. Threat modeling for nascent capabilities. Risk repositories and control frameworks.</p>
+                    <a href="blog.html?category=emerging-tech">Read on emerging tech <span class="arrow">→</span></a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="container">
+            <h2 style="margin-top: 3rem; margin-bottom: 2rem;">Key Frameworks & Assets</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <h4>Three-Archetype Governance Model</h4>
+                    <p>Private, Online-Connected, Online-Disconnected. Scope, controls, and stakeholder alignment per archetype. Foundation for enterprise cloud security.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Multi-Cloud Control Mapping</h4>
+                    <p>SCF controls implemented across Azure, AWS, GCP. Service equivalence matrices. Implementation guidance specific to each platform.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Risk-to-Control Decision Logic</h4>
+                    <p>Traceability frameworks. Technology immaturity thresholds. Stakeholder translation matrices. Making judgment visible and defensible.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>AI Risk Repository</h4>
+                    <p>1600+ AI risks categorized by cause and domain. Threat models for emerging capabilities. Control frameworks for nascent technologies.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Decision Record Templates</h4>
+                    <p>Structured format for documenting security decisions. Risk acceptances. Compensating controls. Rationale and trade-offs.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Maturity Roadmap</h4>
+                    <p>Four-phase 12-month progression. Foundation → Operationalization → Optimization → Strategic. Capability building framework.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="container blog-preview">
+            <h2>Recent Posts</h2>
+            <article class="blog-post">
+                <span class="category">Frameworks</span>
+                <h3>Building a Three-Archetype Cloud Governance Model at Scale</h3>
+                <p class="meta">Published — Coming soon</p>
+                <p>How to segment your cloud environment into operationally distinct archetypes. Why Private, Online-Connected, and Online-Disconnected matter. How to avoid one-size-fits-all governance that breaks on contact with real requirements.</p>
+            </article>
+            <article class="blog-post">
+                <span class="category">Decision Records</span>
+                <h3>Why We Blocked All AI Cloud Deployments (And What We Did Instead)</h3>
+                <p class="meta">Published — Coming soon</p>
+                <p>Technology immaturity is a legitimate security blocker. Undefined threat models, immature controls, absent team capability—these are defensible reasons to say no. How we structured this decision, what we required to say yes, and what we learned.</p>
+            </article>
+            <article class="blog-post">
+                <span class="category">Leadership</span>
+                <h3>Making Invisible Security Work Visible: Documentation as Organizational Credibility</h3>
+                <p class="meta">Published — Coming soon</p>
+                <p>The work you do to influence stakeholders, align competing priorities, and make defensible judgments is often invisible to decision-makers. How to systematically document it. Why visibility builds credibility without requiring political maneuvering.</p>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Greg | Cloud Security Officer &amp; Architect</p>
+        <p>Pragmatic governance. Defensible decisions. Operationalizable frameworks.</p>
+    </footer>
+</body>
+</html>

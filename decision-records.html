@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Records — Greg's Cloud Security</title>
+    <meta name="description" content="Structured decision records documenting security choices, risk acceptances, and compensating controls.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #0066cc;
+            --color-primary-dark: #004499;
+            --color-bg: #ffffff;
+            --color-bg-alt: #f8f9fa;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #666666;
+            --color-border: #e0e0e0;
+            --color-accent: #00a8e8;
+            --color-success: #00a651;
+            --color-warning: #d97706;
+            --color-danger: #dc2626;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #0f1419;
+                --color-bg-alt: #1a1f2e;
+                --color-text: #e8e8e8;
+                --color-text-secondary: #b0b0b0;
+                --color-border: #333333;
+            }
+        }
+        
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            background: var(--color-bg-alt);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        nav a:hover {
+            border-bottom-color: var(--color-primary);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .page-header {
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .page-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .decision-records {
+            padding: 2rem 0;
+        }
+        
+        .decision-record {
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .decision-record:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.08);
+        }
+        
+        .decision-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .decision-record h3 {
+            font-size: 1.2rem;
+            color: var(--color-text);
+        }
+        
+        .decision-id {
+            background: var(--color-primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        
+        .decision-status {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        
+        .status-approved {
+            background: rgba(0, 166, 81, 0.15);
+            color: var(--color-success);
+        }
+        
+        .status-accepted {
+            background: rgba(217, 119, 6, 0.15);
+            color: var(--color-warning);
+        }
+        
+        .status-blocked {
+            background: rgba(220, 38, 38, 0.15);
+            color: var(--color-danger);
+        }
+        
+        .decision-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.9rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .meta-label {
+            color: var(--color-text-secondary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+        
+        .meta-value {
+            color: var(--color-text);
+        }
+        
+        .decision-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .decision-section h4 {
+            font-size: 0.95rem;
+            color: var(--color-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .decision-section p {
+            color: var(--color-text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .decision-section ul {
+            list-style: none;
+            padding-left: 0;
+            color: var(--color-text-secondary);
+        }
+        
+        .decision-section li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .decision-section li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+        
+        .control-item {
+            background: var(--color-bg);
+            border-left: 3px solid var(--color-primary);
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 2px;
+            font-size: 0.9rem;
+        }
+        
+        .control-item strong {
+            color: var(--color-text);
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(0, 168, 232, 0.05) 100%);
+            border-left: 4px solid var(--color-primary);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+        
+        .info-box h5 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        footer {
+            background: var(--color-bg-alt);
+            border-top: 1px solid var(--color-border);
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            nav ul {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+            
+            .decision-header {
+                flex-direction: column;
+            }
+            
+            .decision-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Decision Records</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="frameworks.html">Frameworks & Guides</a></li>
+            <li><a href="decision-records.html">Decision Records</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <section class="page-header">
+            <h2>Structured Security Decisions</h2>
+            <p>Making judgment visible. Risk acceptances. Compensating controls. Trade-offs documented and traceable.</p>
+        </section>
+        
+        <div class="info-box">
+            <h5>About Decision Records</h5>
+            <p>Decision records document security choices with full rationale. Each record captures: what we decided, why we decided it, what risks we accept, what compensating controls we implement, and who agreed. This transparency builds trust and creates institutional memory.</p>
+        </div>
+        
+        <section class="decision-records">
+            <!-- Decision Record 1 -->
+            <article class="decision-record">
+                <div class="decision-header">
+                    <div>
+                        <h3>Block AI-Related Cloud Deployments Pending Security Maturity</h3>
+                        <span class="decision-id">DR-2025-001</span>
+                    </div>
+                    <span class="decision-status status-blocked">Blocked</span>
+                </div>
+                
+                <div class="decision-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Decision Date</span>
+                        <span class="meta-value">Q1 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Stakeholders</span>
+                        <span class="meta-value">Cloud Domain Lead, Cloud Architect, Security Leadership</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Review Date</span>
+                        <span class="meta-value">Q2 2025</span>
+                    </div>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Decision Statement</h4>
+                    <p>
+                        All AI-related cloud resource deployments are blocked until security maturity thresholds are met across four dimensions: defined threat models, mature control implementations, team capability, and established measurement criteria.
+                    </p>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Context & Rationale</h4>
+                    <p>
+                        AI/ML capabilities in cloud environments are evolving rapidly. Threat landscape, control maturity, and organizational capability are all nascent. Deploying without foundational clarity creates unquantifiable risk.
+                    </p>
+                    <p>
+                        <strong>Technology immaturity threshold model assessment:</strong>
+                    </p>
+                    <ul>
+                        <li>Threat models: Undefined (no agreed attack trees, attacker profiles, or vulnerability classes for AI-specific threats)</li>
+                        <li>Control implementations: Immature (control frameworks exist but are not battle-tested in production)</li>
+                        <li>Team capability: Absent (no security team members with AI/ML threat modeling expertise)</li>
+                        <li>Measurement criteria: Not established (no agreed success/failure metrics for AI security controls)</li>
+                    </ul>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>What Changes This Decision</h4>
+                    <p>Deployment can proceed when ALL four criteria are met:</p>
+                    <ul>
+                        <li>Threat models published and reviewed by external security experts</li>
+                        <li>Controls documented with evidence of real-world validation</li>
+                        <li>Team includes at least two individuals with AI security certification/experience</li>
+                        <li>Measurement criteria agreed with CISO, risk, and business sponsors</li>
+                    </ul>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Compensating Controls</h4>
+                    <p>While AI deployments are blocked, we are actively:</p>
+                    <div class="control-item">
+                        <strong>Threat Modeling:</strong> Using the AI Risk Repository v3 to map threat landscape. Publishing monthly risk updates.
+                    </div>
+                    <div class="control-item">
+                        <strong>Control Development:</strong> Building control frameworks specific to AI workloads on Azure. Documenting implementation patterns.
+                    </div>
+                    <div class="control-item">
+                        <strong>Team Capability:</strong> Funding AI security certifications. Building partnerships with external AI security experts. Scheduling quarterly threat modeling sessions.
+                    </div>
+                    <div class="control-item">
+                        <strong>Measurement:</strong> Defining success metrics for AI security controls. Establishing baseline capability assessments.
+                    </div>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Risk Acceptance</h4>
+                    <p>
+                        We accept the risk of slower AI/ML capability deployment. Business teams may perceive this as a blocker. The alternative risk (deploying immature AI without foundational security clarity) is considered unacceptable.
+                    </p>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Stakeholder Alignment</h4>
+                    <p>
+                        <strong>CISO:</strong> This is a defensible risk position grounded in technology maturity, not arbitrary obstruction.
+                        <strong>Business Leads:</strong> We're unblocking AI deployment by accelerating maturity work, not indefinitely saying no.
+                        <strong>Architects:</strong> This clarifies the path: build security foundations first, then deploy.
+                    </p>
+                </div>
+            </article>
+            
+            <!-- Decision Record 2 -->
+            <article class="decision-record">
+                <div class="decision-header">
+                    <div>
+                        <h3>Approve Multi-Cloud Control Framework Implementation (SCF + Azure-First)</h3>
+                        <span class="decision-id">DR-2025-002</span>
+                    </div>
+                    <span class="decision-status status-approved">Approved</span>
+                </div>
+                
+                <div class="decision-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Decision Date</span>
+                        <span class="meta-value">Q1 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Stakeholders</span>
+                        <span class="meta-label">Cloud Domain Lead, Architects, Security Leadership</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Implementation Status</span>
+                        <span class="meta-value">In Progress</span>
+                    </div>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Decision Statement</h4>
+                    <p>
+                        Adopt the Security Cloud Framework (SCF) as the control baseline. Implement across Azure first. Design service equivalence mappings for AWS and GCP to enable future multi-cloud expansion without rearchitecting.
+                    </p>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Rationale</h4>
+                    <p>
+                        <strong>Why SCF:</strong> Comprehensive, cloud-agnostic, and aligned with organizational risk appetite. Better baseline than building custom frameworks from scratch.
+                    </p>
+                    <p>
+                        <strong>Why Azure-first:</strong> Organization's primary cloud platform. Faster to implement and validate. Service equivalence mappings create clear path to multi-cloud without thrashing on control differences.
+                    </p>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Implementation Approach</h4>
+                    <ul>
+                        <li>Map SCF controls to Azure services (complete)</li>
+                        <li>Document implementation guidance for each control</li>
+                        <li>Create service equivalence matrices for AWS/GCP</li>
+                        <li>Pilot with three archetype implementations</li>
+                        <li>Iterate based on operational feedback</li>
+                    </ul>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Trade-offs Accepted</h4>
+                    <p>
+                        <strong>Customization:</strong> SCF is more comprehensive than we need today. We accept some over-scoping rather than building incrementally and refactoring later.
+                    </p>
+                    <p>
+                        <strong>Timeline:</strong> Full multi-cloud equivalence takes time. We prioritize Azure momentum while preparing for AWS/GCP later.
+                    </p>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Success Criteria</h4>
+                    <ul>
+                        <li>All SCF controls mapped to Azure services by end Q2</li>
+                        <li>Implementation guidance completed and peer-reviewed</li>
+                        <li>AWS/GCP equivalence matrices drafted by end Q3</li>
+                        <li>First archetype implementation operational by end Q2</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <!-- Decision Record 3 -->
+            <article class="decision-record">
+                <div class="decision-header">
+                    <div>
+                        <h3>Accept Risk: Delayed Data Residency Controls in Online-Disconnected Archetype</h3>
+                        <span class="decision-id">DR-2025-003</span>
+                    </div>
+                    <span class="decision-status status-accepted">Risk Accepted</span>
+                </div>
+                
+                <div class="decision-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Decision Date</span>
+                        <span class="meta-value">Q1 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Stakeholders</span>
+                        <span class="meta-label">CISO, Legal, Data Governance, Cloud Architecture</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Review Date</span>
+                        <span class="meta-value">Q3 2025</span>
+                    </div>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Decision Statement</h4>
+                    <p>
+                        Accept risk of delayed data residency control implementation in the Online-Disconnected archetype for 90 days. Compensate with procedural controls and enhanced monitoring.
+                    </p>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Risk</h4>
+                    <p>
+                        Data may be processed or replicated outside approved geographic boundaries. Potential compliance impact for regulated data (PII, payment data). Estimated probability: medium. Estimated impact: moderate (notification required, but no expected enforcement action if controls are deployed within 90 days).
+                    </p>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Why Not Wait?</h4>
+                    <p>
+                        Azure service availability in approved regions has maturity gaps. Waiting 6+ months for native residency controls blocks business initiatives. Compensating controls mitigate risk to acceptable level.
+                    </p>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Compensating Controls</h4>
+                    <div class="control-item">
+                        <strong>Procedural:</strong> All data flows reviewed for geographic processing before workload deployment.
+                    </div>
+                    <div class="control-item">
+                        <strong>Monitoring:</strong> Automated alerts for data processing outside approved regions. Daily review logs.
+                    </div>
+                    <div class="control-item">
+                        <strong>Access Control:</strong> RBAC restrictions prevent unauthorized data movement.
+                    </div>
+                    <div class="control-item">
+                        <strong>Audit:</strong> Monthly residency control audit. Escalation triggers if violations detected.
+                    </div>
+                </div>
+                
+                <div class="decision-section">
+                    <h4>Path Forward</h4>
+                    <ul>
+                        <li>Target: Deploy native Azure data residency controls by end Q2</li>
+                        <li>Interim: Compensating procedural and monitoring controls in place by end of week</li>
+                        <li>Audit: Weekly residency compliance review during grace period</li>
+                        <li>Escalation: Any violations immediately escalated to CISO</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Greg | Cloud Security Officer &amp; Architect</p>
+        <p>Decision records are living documents. Updates published quarterly or when decisions change.</p>
+    </footer>
+</body>
+</html>
