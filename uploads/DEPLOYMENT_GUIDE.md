@@ -9,31 +9,7 @@ You now have a professional, static website ready to publish. Five key pages:
 - **decision-records.html** — Structured security decision logs with full rationale
 - **about.html** — Biography and expertise overview
 
-Plus an `assets/` folder with the parallax background:
-
-- **assets/parallax.css** — All parallax styles (light + dark, reduced-motion fallback)
-- **assets/parallax.js** — Reserved hook for future scroll enhancements (no-op today)
-- **assets/parallax-tile.svg** / **parallax-tile-dark.svg** — Tiled geometric shapes
-- **assets/parallax-bg.html** — Reference markup (also inlined into each page)
-
 All files are responsive, dark-mode compatible, and optimized for readability.
-
-### Parallax background
-
-Every page has a subtle multi-layer background visible behind the content:
-gradient mesh + dot grid + tiled architectural shapes (chevrons, perimeters,
-apertures, crosshairs). Slow CSS-driven drift gives it life; content scrolls
-past the fixed canvas. Respects `prefers-reduced-motion` and `prefers-color-scheme`.
-
-To deploy: upload everything (HTML files + the `assets/` folder) to your
-repo root. The relative paths (`assets/parallax.css`) work out of the box
-on GitHub Pages.
-
-To tune the look:
-- **Density / shapes** — Edit `assets/parallax-tile.svg` (and the `-dark.svg`)
-- **Colors** — All blues are in `assets/parallax.css`; search for `#0066cc`, `#00a8e8`, and the dark-mode variants `#50b4f0`, `#78d4ff`
-- **Motion speed** — Animation `duration` values in `parallax.css` (`80s`, `60s`, etc.)
-- **Disable parallax** — Remove the `<link>` and `<script>` tags from `<head>` and the `<div class="parallax-bg">` block from each page
 
 ---
 

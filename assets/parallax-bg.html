@@ -1,0 +1,19 @@
+<!--
+  assets/parallax-bg.html — Drop-in markup for the parallax background.
+  Reference only; this exact markup is inlined into every page right
+  after the opening <body> tag.
+
+  Three layers, each with a data-speed multiplier:
+    - parallax-grid    (0.18) — dot grid, slow
+    - parallax-shapes  (0.40) — tiled geometric shapes, mid
+    - parallax-accents (0.65) — same tile, offset/scaled, fast
+
+  The shapes pattern lives in assets/parallax-tile.svg + parallax-tile-dark.svg.
+  Edit those SVGs to change shape vocabulary; sizes are controlled in parallax.css.
+-->
+<div class="parallax-bg" aria-hidden="true">
+  <div class="parallax-scan"></div>
+  <div class="parallax-layer parallax-grid" data-speed="0.18"></div>
+  <div class="parallax-layer parallax-shapes" data-speed="0.40"></div>
+  <div class="parallax-layer parallax-accents" data-speed="0.65"></div>
+</div>

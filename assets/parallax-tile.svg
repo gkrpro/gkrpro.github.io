@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none">
+  
+  <g transform="translate(60 50) rotate(-6 70 70)" opacity="0.85">
+    <polyline points="20,40 70,12 120,40" stroke="#0066cc" stroke-width="7" stroke-linejoin="miter"></polyline>
+    <polyline points="20,68 70,40 120,68" stroke="#0066cc" stroke-width="7" stroke-linejoin="miter"></polyline>
+    <polyline points="20,96 70,68 120,96" stroke="#0066cc" stroke-width="7" stroke-linejoin="miter"></polyline>
+  </g>
+  
+  <g transform="translate(410 60) rotate(10 60 60)" opacity="0.85">
+    <path d="M 8 8 L 112 8 L 112 50 M 112 70 L 112 112 L 8 112 L 8 8" stroke="#00a8e8" stroke-width="6"></path>
+  </g>
+  
+  <g transform="translate(80 250)" opacity="0.85">
+    <circle cx="70" cy="70" r="62" stroke="#0066cc" stroke-width="5" opacity="0.55"></circle>
+    <circle cx="70" cy="70" r="38" stroke="#0066cc" stroke-width="5" opacity="0.75"></circle>
+    <circle cx="70" cy="70" r="14" stroke="#0066cc" stroke-width="5"></circle>
+  </g>
+  
+  <g transform="translate(390 270) rotate(-12 60 60)" opacity="0.85">
+    <line x1="10" y1="60" x2="110" y2="60" stroke="#00a8e8" stroke-width="5"></line>
+    <line x1="60" y1="10" x2="60" y2="110" stroke="#00a8e8" stroke-width="5"></line>
+    <circle cx="60" cy="60" r="26" stroke="#00a8e8" stroke-width="5"></circle>
+  </g>
+  
+  <g transform="translate(240 430) rotate(8 60 50)" opacity="0.85">
+    <polyline points="10,80 60,28 110,80" stroke="#0066cc" stroke-width="9" stroke-linejoin="miter"></polyline>
+  </g>
+  
+  <g transform="translate(80 460) rotate(15 30 30)" opacity="0.85">
+    <rect x="8" y="8" width="44" height="44" stroke="#00a8e8" stroke-width="4"></rect>
+    <rect x="22" y="22" width="16" height="16" fill="#0066cc"></rect>
+  </g>
+  
+  <g opacity="0.85">
+    <circle cx="500" cy="470" r="22" stroke="#00a8e8" stroke-width="4"></circle>
+    <circle cx="500" cy="470" r="4" fill="#00a8e8"></circle>
+  </g>
+  
+  <g opacity="0.6" stroke="#00a8e8" stroke-width="3" stroke-linecap="round">
+    <line x1="320" y1="180" x2="335" y2="180"></line>
+    <line x1="200" y1="380" x2="215" y2="380"></line>
+    <line x1="540" y1="320" x2="555" y2="320"></line>
+    <line x1="40" y1="180" x2="55" y2="180"></line>
+  </g>
+  
+  <g fill="#00a8e8">
+    <circle cx="290" cy="100" r="4"></circle>
+    <circle cx="350" cy="240" r="5"></circle>
+    <circle cx="170" cy="200" r="3"></circle>
+    <circle cx="540" cy="180" r="4"></circle>
+    <circle cx="540" cy="430" r="3"></circle>
+    <circle cx="220" cy="540" r="4"></circle>
+    <circle cx="380" cy="540" r="3"></circle>
+    <circle cx="100" cy="350" r="4"></circle>
+  </g>
+</svg>
