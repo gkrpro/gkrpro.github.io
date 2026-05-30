@@ -143,28 +143,16 @@
     table.evd tbody tr:hover { background: var(--bg-2); cursor: pointer; }
     .mdl { font-weight: 500; font-size: 13px; }
     .mdl-prov { font-size: 11px; color: var(--text-2); }
-    .cell { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 4px; font-size: 13px; position: relative; }
+    .cell-wrap { display: inline-flex; align-items: center; gap: 2px; }
+    .cell { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 4px; font-size: 13px; }
     .cell.yes { color: var(--c-teal-800); background: var(--c-teal-50); }
     .cell.no { color: var(--c-gray-800); background: var(--c-gray-50); }
     .cell.part { color: var(--c-amber-800); background: var(--c-amber-50); }
     .cell.na { color: var(--text-3); background: transparent; }
-    /* Auto-verified cells get a small live-indicator dot in the corner */
-    .cell.auto::after {
-      content: '';
-      position: absolute;
-      top: 1px; right: 1px;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-    th.auto-col { position: relative; }
-    th.auto-col::after {
-      content: '●';
-      color: var(--accent);
-      font-size: 8px;
-      margin-left: 4px;
-      vertical-align: 2px;
-    }
+    .vmark { font-size: 9px; line-height: 1; color: var(--text-3); width: 10px; text-align: center; }
+    .vmark.auto { color: var(--c-teal-800); }
+    .vmark.manual { color: var(--c-blue-800); }
+    .vmark.unver { color: var(--c-amber-800); }
     .badge { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 500; }
     .b-gpaisr { background: var(--c-pink-50); color: var(--c-pink-800); }
     .b-gpai { background: var(--c-blue-50); color: var(--c-blue-800); }
@@ -226,10 +214,8 @@
 
     <div class="banner">
       <strong>Methodology note:</strong> This dashboard catalogues what public evidence exists per model from the source allowlist (provider sites, EU AI Office, Hugging Face, GitHub, AISI, HELM). No model probing. No vendor-comparative claims. Aligned to the AI Model Use Rating Framework v1.0.
-    </div>
-
-    <div class="banner" style="border-left-color: var(--c-teal-800); background: var(--c-teal-50); color: var(--c-teal-800);">
-      <strong>● Live-refreshed cells:</strong> Columns marked with a small dot — <strong>CoP</strong>, <strong>MC</strong>, <strong>TD</strong>, <strong>VD</strong> — are auto-fetched on every workflow run (EU AI Office signatory list, Hugging Face model cards, GitHub SECURITY.md). All other cells are manually curated. Cells with the indicator dot in the corner show the auto-verified value; cells without it are manual.
+      <br><br>
+      <strong>Verification status:</strong> 3 of 12 cells refresh automatically every run — <span class="vmark auto">●</span> <strong>MC</strong> (HuggingFace API), <strong>CoP</strong> (EU AI Office page), <strong>VD</strong> (GitHub SECURITY.md). The other 9 stay manually curated <span class="vmark manual">●</span> or flagged <span class="vmark unver">●</span> as awaiting verification. Unverified does <strong>not</strong> mean non-compliant — it means our process hasn't reached that cell yet.
     </div>
 
     <div class="stats">
@@ -263,22 +249,22 @@
             <th rowspan="2">Model</th>
             <th rowspan="2">Origin</th>
             <th rowspan="2" title="EU AI Act classification">AI Act</th>
-            <th rowspan="2" title="GPAI Code of Practice signatory status — auto-refreshed from the EU AI Office page" class="auto-col">CoP</th>
+            <th rowspan="2" title="GPAI Code of Practice signatory status">CoP</th>
             <th class="grp" colspan="3" style="text-align: center;">Transparency</th>
             <th class="grp" colspan="3" style="text-align: center;">Safety eval</th>
             <th class="grp" colspan="3" style="text-align: center;">Security posture</th>
             <th class="grp" colspan="3" style="text-align: center;">Privacy</th>
           </tr>
           <tr>
-            <th title="Model card — auto-refreshed from Hugging Face for open-weight models" class="auto-col">MC</th>
+            <th title="Model card">MC</th>
             <th title="System card">SC</th>
-            <th title="Training data disclosure — auto-refreshed from Hugging Face for open-weight models" class="auto-col">TD</th>
+            <th title="Training data disclosure">TD</th>
             <th title="Safety evaluation published">SE</th>
             <th title="Independent third-party evaluation">3P</th>
             <th title="Red-team report">RT</th>
             <th title="SOC 2 attestation">S2</th>
             <th title="ISO/IEC 27001 certification">27</th>
-            <th title="Vulnerability disclosure policy — auto-refreshed from GitHub SECURITY.md for open-weight models" class="auto-col">VD</th>
+            <th title="Vulnerability disclosure policy">VD</th>
             <th title="Data Processing Agreement">DPA</th>
             <th title="EU data-residency option">EU</th>
             <th title="No-training-on-customer-data clause">NT</th>
@@ -293,6 +279,11 @@
       <span><span class="cell part" aria-hidden="true">~</span> Partial / outdated</span>
       <span><span class="cell no" aria-hidden="true">·</span> Not found</span>
       <span><span class="cell na" aria-hidden="true">–</span> N/A</span>
+      <span style="margin-left: 20px; padding-left: 20px; border-left: 0.5px solid var(--border);">
+        <span class="vmark auto">●</span> Automated
+        <span class="vmark manual" style="margin-left: 8px;">●</span> Manual
+        <span class="vmark unver" style="margin-left: 8px;">●</span> Unverified
+      </span>
     </div>
 
     <div id="detail" class="detail" aria-live="polite"></div>
@@ -375,31 +366,26 @@
   <script>
     const STATUS = {1: 'yes', 0: 'no', 2: 'part', 3: 'na'};
     const SYM = {1: '✓', 0: '·', 2: '~', 3: '–'};
-    const AUTO_CELLS = new Set(['mc', 'td', 'cop', 'vd']);
 
-    function isAuto(model, cell) {
-      const prov = model._provenance || {};
-      const p = prov[cell];
-      return p && p.mode === 'auto';
-    }
-
-    function cell(v, autoFlag) {
+    function cell(v, method) {
       const c = STATUS[v] || 'no';
       const s = SYM[v] || '·';
-      const cls = 'cell ' + c + (autoFlag ? ' auto' : '');
-      const title = autoFlag ? ' title="auto-verified"' : '';
-      return '<span class="' + cls + '"' + title + ' aria-hidden="true">' + s + '</span>';
+      let vClass = 'unver';
+      let vTitle = 'Unverified — manual review needed';
+      if (method === 'automated') { vClass = 'auto'; vTitle = 'Automated verification'; }
+      else if (method === 'manual') { vClass = 'manual'; vTitle = 'Manually verified'; }
+      return '<span class="cell-wrap"><span class="cell ' + c + '" aria-hidden="true">' + s + '</span>' +
+             '<span class="vmark ' + vClass + '" title="' + vTitle + '" aria-label="' + vTitle + '">●</span></span>';
     }
     function tierBadge(t) {
       if (t === 'GPAISR') return '<span class="badge b-gpaisr">GPAISR</span>';
       if (t === 'GPAI') return '<span class="badge b-gpai">GPAI</span>';
       return '<span class="badge b-open">Open</span>';
     }
-    function copBadge(c, autoFlag) {
-      const dot = autoFlag ? '<span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);margin-left:4px;vertical-align:middle;" title="auto-verified"></span>' : '';
-      if (c === 'F') return '<span class="badge b-cop-f">Full</span>' + dot;
-      if (c === 'S') return '<span class="badge b-cop-s">Safety</span>' + dot;
-      return '<span class="badge b-cop-n">No</span>' + dot;
+    function copBadge(c) {
+      if (c === 'F') return '<span class="badge b-cop-f">Full</span>';
+      if (c === 'S') return '<span class="badge b-cop-s">Safety</span>';
+      return '<span class="badge b-cop-n">No</span>';
     }
 
     let MODELS = [];
@@ -421,15 +407,16 @@
       );
       tbody.innerHTML = rows.map(m => {
         const idx = MODELS.indexOf(m);
+        const ver = m.verification || {};
         return '<tr data-idx="' + idx + '">' +
           '<td><div class="mdl">' + m.n + '</div><div class="mdl-prov">' + m.p + ' · ' + m.v + '</div></td>' +
           '<td style="font-size: 11px; color: var(--text-2);">' + m.o + '</td>' +
           '<td>' + tierBadge(m.t) + '</td>' +
-          '<td>' + copBadge(m.cop, isAuto(m, 'cop')) + '</td>' +
-          '<td>' + cell(m.mc, isAuto(m, 'mc')) + '</td><td>' + cell(m.sc, false) + '</td><td>' + cell(m.td, isAuto(m, 'td')) + '</td>' +
-          '<td>' + cell(m.se, false) + '</td><td>' + cell(m.tp, false) + '</td><td>' + cell(m.rt, false) + '</td>' +
-          '<td>' + cell(m.s2, false) + '</td><td>' + cell(m.iso, false) + '</td><td>' + cell(m.vd, isAuto(m, 'vd')) + '</td>' +
-          '<td>' + cell(m.dpa, false) + '</td><td>' + cell(m.eu, false) + '</td><td>' + cell(m.nt, false) + '</td>' +
+          '<td>' + copBadge(m.cop) + '</td>' +
+          '<td>' + cell(m.mc, ver.mc) + '</td><td>' + cell(m.sc, ver.sc) + '</td><td>' + cell(m.td, ver.td) + '</td>' +
+          '<td>' + cell(m.se, ver.se) + '</td><td>' + cell(m.tp, ver.tp) + '</td><td>' + cell(m.rt, ver.rt) + '</td>' +
+          '<td>' + cell(m.s2, ver.s2) + '</td><td>' + cell(m.iso, ver.iso) + '</td><td>' + cell(m.vd, ver.vd) + '</td>' +
+          '<td>' + cell(m.dpa, ver.dpa) + '</td><td>' + cell(m.eu, ver.eu) + '</td><td>' + cell(m.nt, ver.nt) + '</td>' +
           '</tr>';
       }).join('');
       document.getElementById('s-total').textContent = MODELS.length;
@@ -440,46 +427,47 @@
 
     function showDetail(idx) {
       const m = MODELS[idx];
-      const prov = m._provenance || {};
+      const ver = m.verification || {};
+      const apiUrls = m.api_urls || {};
       const items = [
-        ['Model card', 'mc', m.mc],
-        ['System card', 'sc', m.sc],
-        ['Training data disclosure', 'td', m.td],
-        ['Safety evaluation', 'se', m.se],
-        ['Independent 3rd-party eval', 'tp', m.tp],
-        ['Red-team report', 'rt', m.rt],
-        ['SOC 2', 's2', m.s2],
-        ['ISO 27001', 'iso', m.iso],
-        ['Vulnerability disclosure', 'vd', m.vd],
-        ['Data Processing Agreement', 'dpa', m.dpa],
-        ['EU data residency', 'eu', m.eu],
-        ['No-train clause', 'nt', m.nt],
+        ['Model card (MC)', 'mc', m.mc, m.urls && m.urls.mc],
+        ['System card (SC)', 'sc', m.sc, m.urls && m.urls.sc],
+        ['Training data disclosure (TD)', 'td', m.td, m.urls && m.urls.td],
+        ['Safety evaluation (SE)', 'se', m.se, m.urls && m.urls.se],
+        ['Independent 3rd-party eval (3P)', 'tp', m.tp, m.urls && m.urls.tp],
+        ['Red-team report (RT)', 'rt', m.rt, m.urls && m.urls.rt],
+        ['SOC 2 (S2)', 's2', m.s2, m.urls && m.urls.s2],
+        ['ISO 27001 (27)', 'iso', m.iso, m.urls && m.urls.iso],
+        ['Vulnerability disclosure (VD)', 'vd', m.vd, m.urls && m.urls.vd],
+        ['Data Processing Agreement (DPA)', 'dpa', m.dpa, m.urls && m.urls.dpa],
+        ['EU data residency (EU)', 'eu', m.eu, m.urls && m.urls.eu],
+        ['No-train clause (NT)', 'nt', m.nt, m.urls && m.urls.nt],
       ];
-
-      function provBadge(p) {
-        if (!p) return '<span style="color: var(--text-3); font-size: 10px;">manual</span>';
-        if (p.mode === 'auto') {
-          const when = p.captured_at ? p.captured_at.slice(0, 10) : '';
-          return '<span style="background: var(--c-teal-50); color: var(--c-teal-800); font-size: 10px; padding: 1px 5px; border-radius: 3px; font-weight: 500;">● auto · ' + when + '</span>';
-        }
-        if (p.mode === 'manual-override') {
-          return '<span style="background: var(--c-amber-50); color: var(--c-amber-800); font-size: 10px; padding: 1px 5px; border-radius: 3px;">manual override</span>';
-        }
-        return '<span style="color: var(--text-3); font-size: 10px;">manual</span>';
-      }
-
+      const methodIcon = (mth) => {
+        if (mth === 'automated') return '<span class="vmark auto" title="Automated">●</span>';
+        if (mth === 'manual') return '<span class="vmark manual" title="Manual">●</span>';
+        return '<span class="vmark unver" title="Unverified">●</span>';
+      };
       detail.innerHTML =
         '<h3>' + m.n + ' <span style="font-weight: 400; color: var(--text-2); font-size: 12px;">' + m.p + ' · ' + m.v + ' · ' + m.o + '</span></h3>' +
-        items.map(([k, key, v]) => {
-          const p = prov[key];
-          const u = (m.urls && m.urls[key]) || (p && p.source_url);
+        items.map(([k, key, v, u]) => {
           const hasSource = (v === 1 || v === 2) && u;
-          const note = p && p.note ? '<div style="font-size: 10px; color: var(--text-3); margin-top: 2px;">' + p.note + '</div>' : '';
-          return '<div class="detail-row"><span>' + k + ' ' + provBadge(p) + note + '</span><span>' + SYM[v] + ' ' +
-            (hasSource ? '<a href="' + u + '" target="_blank" rel="noopener">source ↗</a>' :
-             '<span style="color: var(--text-3);">no public source</span>') + '</span></div>';
+          const apiU = apiUrls[key];
+          const mth = ver[key] || 'unverified';
+          let right = SYM[v] + ' ';
+          if (hasSource) {
+            right += '<a href="' + u + '" target="_blank" rel="noopener">source ↗</a>';
+          } else {
+            right += '<span style="color: var(--text-3);">no public source</span>';
+          }
+          if (apiU) {
+            right += ' &nbsp;·&nbsp; <a href="' + apiU + '" target="_blank" rel="noopener" style="font-size: 11px; color: var(--text-3);">API ↗</a>';
+          }
+          right += ' &nbsp;' + methodIcon(mth);
+          return '<div class="detail-row"><span>' + k + '</span><span>' + right + '</span></div>';
         }).join('') +
-        '<p style="font-size: 11px; color: var(--text-3); margin: 12px 0 0;">Last verified: ' + (m.last_verified || 'unknown') + '</p>';
+        '<p style="font-size: 11px; color: var(--text-3); margin: 12px 0 0;">Last verified: ' + (m.last_verified || 'unknown') +
+        ' · Last run: ' + (m.last_run || 'unknown') + '</p>';
       detail.classList.add('open');
       detail.scrollIntoView({behavior: 'smooth', block: 'nearest'});
     }
