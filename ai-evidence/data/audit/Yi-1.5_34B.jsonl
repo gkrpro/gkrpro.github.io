@@ -1,0 +1,1 @@
+{"timestamp": "2026-05-30T11:31:14+00:00", "changes": [{"field": "mc", "from_value": 1, "to_value": 1, "from_method": "unverified", "to_method": "automated", "source_url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat", "api_url": "https://huggingface.co/api/models/01-ai/Yi-1.5-34B-Chat", "content_hash": "2c3ed32b0d8798d9", "note": null}]}

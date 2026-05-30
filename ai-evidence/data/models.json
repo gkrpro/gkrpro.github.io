@@ -4,7 +4,7 @@
     "generated_at": "2026-05-30",
     "generator": "ai-evidence/collectors/refresh.py",
     "notes": "Initial seed dataset. Cell values are illustrative, drawn from publicly typical evidence patterns per provider class. Production cells must carry per-cell source_url + captured_at + content_hash.",
-    "generated_at_iso": "2026-05-30T11:24:23+00:00",
+    "generated_at_iso": "2026-05-30T11:31:15+00:00",
     "automated_cells": [
       "mc",
       "cop",
@@ -68,7 +68,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/anthropics/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:07+00:00"
+      "last_run": "2026-05-30T11:30:50+00:00"
     },
     {
       "n": "Claude Sonnet 4.6",
@@ -114,7 +114,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/anthropics/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:07+00:00"
+      "last_run": "2026-05-30T11:30:51+00:00"
     },
     {
       "n": "Claude Haiku 4.5",
@@ -160,7 +160,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/anthropics/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:07+00:00"
+      "last_run": "2026-05-30T11:30:51+00:00"
     },
     {
       "n": "GPT-5.5",
@@ -206,7 +206,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/openai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:08+00:00"
+      "last_run": "2026-05-30T11:30:51+00:00"
     },
     {
       "n": "GPT-5.5 Pro",
@@ -252,7 +252,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/openai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:08+00:00"
+      "last_run": "2026-05-30T11:30:52+00:00"
     },
     {
       "n": "GPT-5.4",
@@ -298,7 +298,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/openai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:08+00:00"
+      "last_run": "2026-05-30T11:30:52+00:00"
     },
     {
       "n": "GPT-5 mini",
@@ -344,7 +344,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/openai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:08+00:00"
+      "last_run": "2026-05-30T11:30:52+00:00"
     },
     {
       "n": "GPT-5 nano",
@@ -390,7 +390,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/openai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:08+00:00"
+      "last_run": "2026-05-30T11:30:52+00:00"
     },
     {
       "n": "Gemini 3.1 Pro",
@@ -436,7 +436,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/google-deepmind/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:08+00:00"
+      "last_run": "2026-05-30T11:30:53+00:00"
     },
     {
       "n": "Gemini 3.5 Flash",
@@ -482,7 +482,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/google-deepmind/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:09+00:00"
+      "last_run": "2026-05-30T11:30:53+00:00"
     },
     {
       "n": "Gemini 3 Flash-Lite",
@@ -528,7 +528,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/google-deepmind/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:09+00:00"
+      "last_run": "2026-05-30T11:30:54+00:00"
     },
     {
       "n": "Grok 4.3",
@@ -574,7 +574,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/xai-org/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:09+00:00"
+      "last_run": "2026-05-30T11:30:54+00:00"
     },
     {
       "n": "Grok 4 Fast",
@@ -620,7 +620,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/xai-org/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:10+00:00"
+      "last_run": "2026-05-30T11:30:54+00:00"
     },
     {
       "n": "DeepSeek V4 Pro",
@@ -666,7 +666,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/deepseek-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:10+00:00"
+      "last_run": "2026-05-30T11:30:54+00:00"
     },
     {
       "n": "Qwen 3.7 Max",
@@ -712,7 +712,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/QwenLM/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:10+00:00"
+      "last_run": "2026-05-30T11:30:55+00:00"
     },
     {
       "n": "GLM-5.1",
@@ -758,7 +758,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/THUDM/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:10+00:00"
+      "last_run": "2026-05-30T11:30:55+00:00"
     },
     {
       "n": "MiniMax M2.5",
@@ -804,7 +804,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/MiniMax-AI/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:10+00:00"
+      "last_run": "2026-05-30T11:30:55+00:00"
     },
     {
       "n": "Mistral Large 3",
@@ -850,7 +850,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/mistralai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:11+00:00"
+      "last_run": "2026-05-30T11:30:56+00:00"
     },
     {
       "n": "Mistral Medium 3",
@@ -896,7 +896,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/mistralai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:11+00:00"
+      "last_run": "2026-05-30T11:30:56+00:00"
     },
     {
       "n": "Mistral Small 3",
@@ -942,7 +942,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/mistralai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:11+00:00"
+      "last_run": "2026-05-30T11:30:56+00:00"
     },
     {
       "n": "Cohere Command R+",
@@ -988,7 +988,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/cohere-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:12+00:00"
+      "last_run": "2026-05-30T11:30:57+00:00"
     },
     {
       "n": "Cohere Command R",
@@ -1034,7 +1034,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/cohere-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:12+00:00"
+      "last_run": "2026-05-30T11:30:57+00:00"
     },
     {
       "n": "Kimi K2.6",
@@ -1080,7 +1080,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/MoonshotAI/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:12+00:00"
+      "last_run": "2026-05-30T11:30:57+00:00"
     },
     {
       "n": "Reka Core 2",
@@ -1126,7 +1126,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/reka-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:12+00:00"
+      "last_run": "2026-05-30T11:30:58+00:00"
     },
     {
       "n": "Inflection-2.5",
@@ -1172,7 +1172,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/inflection-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:13+00:00"
+      "last_run": "2026-05-30T11:30:58+00:00"
     },
     {
       "n": "AI21 Jamba 2",
@@ -1218,7 +1218,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/AI21Labs/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:13+00:00"
+      "last_run": "2026-05-30T11:30:58+00:00"
     },
     {
       "n": "Aleph Alpha Pharia 2",
@@ -1264,7 +1264,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/Aleph-Alpha/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:13+00:00"
+      "last_run": "2026-05-30T11:30:58+00:00"
     },
     {
       "n": "Perplexity Sonar Pro",
@@ -1310,7 +1310,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/perplexity-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:13+00:00"
+      "last_run": "2026-05-30T11:30:59+00:00"
     },
     {
       "n": "Llama 4.1 Maverick",
@@ -1358,7 +1358,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/meta-llama/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:13+00:00"
+      "last_run": "2026-05-30T11:30:59+00:00"
     },
     {
       "n": "Llama 4 Scout",
@@ -1383,7 +1383,7 @@
       "hf_slug": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
       "github_org": "meta-llama",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -1399,14 +1399,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/meta-llama"
+        "vd": "https://github.com/meta-llama",
+        "mc": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/meta-llama/Llama-4-Scout-17B-16E-Instruct",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/meta-llama/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:13+00:00"
+      "last_run": "2026-05-30T11:30:59+00:00"
     },
     {
       "n": "Llama 3.3 70B",
@@ -1431,7 +1432,7 @@
       "hf_slug": "meta-llama/Llama-3.3-70B-Instruct",
       "github_org": "meta-llama",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -1447,14 +1448,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/meta-llama"
+        "vd": "https://github.com/meta-llama",
+        "mc": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/meta-llama/Llama-3.3-70B-Instruct",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/meta-llama/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:14+00:00"
+      "last_run": "2026-05-30T11:31:00+00:00"
     },
     {
       "n": "Qwen 3.5",
@@ -1502,7 +1504,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/QwenLM/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:14+00:00"
+      "last_run": "2026-05-30T11:31:01+00:00"
     },
     {
       "n": "Qwen 2.5 72B",
@@ -1527,7 +1529,7 @@
       "hf_slug": "Qwen/Qwen2.5-72B-Instruct",
       "github_org": "QwenLM",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -1543,14 +1545,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/QwenLM"
+        "vd": "https://github.com/QwenLM",
+        "mc": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/Qwen/Qwen2.5-72B-Instruct",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/QwenLM/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:15+00:00"
+      "last_run": "2026-05-30T11:31:01+00:00"
     },
     {
       "n": "DeepSeek V4 Preview",
@@ -1598,7 +1601,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/deepseek-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:15+00:00"
+      "last_run": "2026-05-30T11:31:01+00:00"
     },
     {
       "n": "DeepSeek V3.2",
@@ -1623,7 +1626,7 @@
       "hf_slug": "deepseek-ai/DeepSeek-V3.2",
       "github_org": "deepseek-ai",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -1639,14 +1642,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/deepseek-ai"
+        "vd": "https://github.com/deepseek-ai",
+        "mc": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V3.2",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/deepseek-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:15+00:00"
+      "last_run": "2026-05-30T11:31:02+00:00"
     },
     {
       "n": "DeepSeek R1",
@@ -1671,7 +1675,7 @@
       "hf_slug": "deepseek-ai/DeepSeek-R1",
       "github_org": "deepseek-ai",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -1687,14 +1691,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/deepseek-ai"
+        "vd": "https://github.com/deepseek-ai",
+        "mc": "https://huggingface.co/deepseek-ai/DeepSeek-R1"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-R1",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/deepseek-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:15+00:00"
+      "last_run": "2026-05-30T11:31:02+00:00"
     },
     {
       "n": "GLM-5",
@@ -1742,7 +1747,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/THUDM/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:15+00:00"
+      "last_run": "2026-05-30T11:31:03+00:00"
     },
     {
       "n": "GLM-4.6",
@@ -1790,7 +1795,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/THUDM/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:16+00:00"
+      "last_run": "2026-05-30T11:31:03+00:00"
     },
     {
       "n": "Mistral 7B v0.3",
@@ -1815,7 +1820,7 @@
       "hf_slug": "mistralai/Mistral-7B-Instruct-v0.3",
       "github_org": "mistralai",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -1831,14 +1836,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/mistralai"
+        "vd": "https://github.com/mistralai",
+        "mc": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/mistralai/Mistral-7B-Instruct-v0.3",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/mistralai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:16+00:00"
+      "last_run": "2026-05-30T11:31:03+00:00"
     },
     {
       "n": "Mixtral 8x22B",
@@ -1863,7 +1869,7 @@
       "hf_slug": "mistralai/Mixtral-8x22B-Instruct-v0.1",
       "github_org": "mistralai",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -1879,14 +1885,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/mistralai"
+        "vd": "https://github.com/mistralai",
+        "mc": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/mistralai/Mixtral-8x22B-Instruct-v0.1",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/mistralai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:16+00:00"
+      "last_run": "2026-05-30T11:31:04+00:00"
     },
     {
       "n": "Codestral 25B",
@@ -1934,7 +1941,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/mistralai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:17+00:00"
+      "last_run": "2026-05-30T11:31:05+00:00"
     },
     {
       "n": "Gemma 3 27B",
@@ -1959,7 +1966,7 @@
       "hf_slug": "google/gemma-3-27b-it",
       "github_org": "google-deepmind",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -1975,14 +1982,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/google-deepmind"
+        "vd": "https://github.com/google-deepmind",
+        "mc": "https://huggingface.co/google/gemma-3-27b-it"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/google/gemma-3-27b-it",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/google-deepmind/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:17+00:00"
+      "last_run": "2026-05-30T11:31:05+00:00"
     },
     {
       "n": "Gemma 3 9B",
@@ -2030,7 +2038,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/google-deepmind/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:17+00:00"
+      "last_run": "2026-05-30T11:31:05+00:00"
     },
     {
       "n": "Phi-4 14B",
@@ -2047,7 +2055,7 @@
       "rt": 0,
       "s2": 0,
       "iso": 0,
-      "vd": 0,
+      "vd": 1,
       "dpa": 0,
       "eu": 0,
       "nt": 0,
@@ -2055,7 +2063,7 @@
       "hf_slug": "microsoft/phi-4",
       "github_org": "microsoft",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -2071,14 +2079,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/microsoft"
+        "vd": "https://github.com/microsoft/.github/blob/main/SECURITY.md",
+        "mc": "https://huggingface.co/microsoft/phi-4"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/microsoft/phi-4",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/microsoft/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:17+00:00"
+      "last_run": "2026-05-30T11:31:06+00:00"
     },
     {
       "n": "Phi-4 multimodal",
@@ -2095,7 +2104,7 @@
       "rt": 0,
       "s2": 0,
       "iso": 0,
-      "vd": 0,
+      "vd": 1,
       "dpa": 0,
       "eu": 0,
       "nt": 0,
@@ -2103,7 +2112,7 @@
       "hf_slug": "microsoft/Phi-4-multimodal-instruct",
       "github_org": "microsoft",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -2119,14 +2128,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/microsoft"
+        "vd": "https://github.com/microsoft/.github/blob/main/SECURITY.md",
+        "mc": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/microsoft/Phi-4-multimodal-instruct",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/microsoft/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:18+00:00"
+      "last_run": "2026-05-30T11:31:06+00:00"
     },
     {
       "n": "Nemotron 4 340B",
@@ -2151,7 +2161,7 @@
       "hf_slug": "nvidia/Nemotron-4-340B-Instruct",
       "github_org": "NVIDIA",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "unverified",
         "vd": "automated",
         "sc": "manual",
@@ -2167,14 +2177,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/NVIDIA"
+        "vd": "https://github.com/NVIDIA",
+        "mc": "https://huggingface.co/nvidia/Nemotron-4-340B-Instruct"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/nvidia/Nemotron-4-340B-Instruct",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/NVIDIA/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:18+00:00"
+      "last_run": "2026-05-30T11:31:06+00:00"
     },
     {
       "n": "Kimi K2 (open)",
@@ -2199,7 +2210,7 @@
       "hf_slug": "moonshotai/Kimi-K2-Instruct",
       "github_org": "MoonshotAI",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "unverified",
@@ -2215,14 +2226,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/MoonshotAI"
+        "vd": "https://github.com/MoonshotAI",
+        "mc": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/moonshotai/Kimi-K2-Instruct",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/MoonshotAI/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:18+00:00"
+      "last_run": "2026-05-30T11:31:07+00:00"
     },
     {
       "n": "Yi-Large 2",
@@ -2270,7 +2282,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/01-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:18+00:00"
+      "last_run": "2026-05-30T11:31:07+00:00"
     },
     {
       "n": "Falcon 3 180B",
@@ -2318,7 +2330,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/tiiuae/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:18+00:00"
+      "last_run": "2026-05-30T11:31:07+00:00"
     },
     {
       "n": "Falcon 3 40B",
@@ -2366,7 +2378,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/tiiuae/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:19+00:00"
+      "last_run": "2026-05-30T11:31:08+00:00"
     },
     {
       "n": "Command R+ (open)",
@@ -2391,7 +2403,7 @@
       "hf_slug": "CohereLabs/c4ai-command-r-plus",
       "github_org": "cohere-ai",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -2407,14 +2419,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/cohere-ai"
+        "vd": "https://github.com/cohere-ai",
+        "mc": "https://huggingface.co/CohereLabs/c4ai-command-r-plus"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/CohereLabs/c4ai-command-r-plus",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/cohere-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:19+00:00"
+      "last_run": "2026-05-30T11:31:09+00:00"
     },
     {
       "n": "DBRX",
@@ -2462,7 +2475,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/databricks/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:19+00:00"
+      "last_run": "2026-05-30T11:31:09+00:00"
     },
     {
       "n": "OLMo 2 32B",
@@ -2510,7 +2523,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/allenai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:20+00:00"
+      "last_run": "2026-05-30T11:31:09+00:00"
     },
     {
       "n": "OLMo 2 7B",
@@ -2535,7 +2548,7 @@
       "hf_slug": "allenai/OLMo-2-1124-7B-Instruct",
       "github_org": "allenai",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "unverified",
         "vd": "automated",
         "sc": "manual",
@@ -2551,14 +2564,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/allenai"
+        "vd": "https://github.com/allenai",
+        "mc": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/allenai/OLMo-2-1124-7B-Instruct",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/allenai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:20+00:00"
+      "last_run": "2026-05-30T11:31:10+00:00"
     },
     {
       "n": "Stable LM 3",
@@ -2606,7 +2620,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/Stability-AI/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:20+00:00"
+      "last_run": "2026-05-30T11:31:10+00:00"
     },
     {
       "n": "Pharia-1 (open)",
@@ -2631,7 +2645,7 @@
       "hf_slug": "Aleph-Alpha/Pharia-1-LLM-7B-control",
       "github_org": "Aleph-Alpha",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -2647,14 +2661,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/Aleph-Alpha"
+        "vd": "https://github.com/Aleph-Alpha",
+        "mc": "https://huggingface.co/Aleph-Alpha/Pharia-1-LLM-7B-control"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/Aleph-Alpha/Pharia-1-LLM-7B-control",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/Aleph-Alpha/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:20+00:00"
+      "last_run": "2026-05-30T11:31:10+00:00"
     },
     {
       "n": "MPT-30B",
@@ -2702,7 +2717,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/mosaicml/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:20+00:00"
+      "last_run": "2026-05-30T11:31:11+00:00"
     },
     {
       "n": "BLOOM 176B",
@@ -2727,7 +2742,7 @@
       "hf_slug": "bigscience/bloom",
       "github_org": "bigscience-workshop",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "unverified",
         "vd": "automated",
         "sc": "manual",
@@ -2743,14 +2758,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/bigscience-workshop"
+        "vd": "https://github.com/bigscience-workshop",
+        "mc": "https://huggingface.co/bigscience/bloom"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/bigscience/bloom",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/bigscience-workshop/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:21+00:00"
+      "last_run": "2026-05-30T11:31:12+00:00"
     },
     {
       "n": "Granite 3.2 8B",
@@ -2775,7 +2791,7 @@
       "hf_slug": "ibm-granite/granite-3.2-8b-instruct",
       "github_org": "ibm-granite",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -2791,14 +2807,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/ibm-granite"
+        "vd": "https://github.com/ibm-granite",
+        "mc": "https://huggingface.co/ibm-granite/granite-3.2-8b-instruct"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/ibm-granite/granite-3.2-8b-instruct",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/ibm-granite/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:21+00:00"
+      "last_run": "2026-05-30T11:31:12+00:00"
     },
     {
       "n": "Granite 3.2 34B",
@@ -2846,7 +2863,7 @@
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/ibm-granite/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:21+00:00"
+      "last_run": "2026-05-30T11:31:12+00:00"
     },
     {
       "n": "InternLM 3",
@@ -2871,7 +2888,7 @@
       "hf_slug": "internlm/internlm3-8b-instruct",
       "github_org": "InternLM",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "unverified",
         "vd": "automated",
         "sc": "manual",
@@ -2887,14 +2904,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/InternLM"
+        "vd": "https://github.com/InternLM",
+        "mc": "https://huggingface.co/internlm/internlm3-8b-instruct"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/internlm/internlm3-8b-instruct",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/InternLM/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:22+00:00"
+      "last_run": "2026-05-30T11:31:13+00:00"
     },
     {
       "n": "Yi-1.5 34B",
@@ -2919,7 +2937,7 @@
       "hf_slug": "01-ai/Yi-1.5-34B-Chat",
       "github_org": "01-ai",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "unverified",
         "vd": "automated",
         "sc": "manual",
@@ -2935,14 +2953,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/01-ai"
+        "vd": "https://github.com/01-ai",
+        "mc": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/01-ai/Yi-1.5-34B-Chat",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/01-ai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:22+00:00"
+      "last_run": "2026-05-30T11:31:14+00:00"
     },
     {
       "n": "Mistral NeMo",
@@ -2967,7 +2986,7 @@
       "hf_slug": "mistralai/Mistral-Nemo-Instruct-2407",
       "github_org": "mistralai",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "automated",
         "vd": "automated",
         "sc": "manual",
@@ -2983,14 +3002,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/mistralai"
+        "vd": "https://github.com/mistralai",
+        "mc": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/mistralai/Mistral-Nemo-Instruct-2407",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/mistralai/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:22+00:00"
+      "last_run": "2026-05-30T11:31:14+00:00"
     },
     {
       "n": "Hermes 3",
@@ -3015,7 +3035,7 @@
       "hf_slug": "NousResearch/Hermes-3-Llama-3.1-405B",
       "github_org": "NousResearch",
       "verification": {
-        "mc": "unverified",
+        "mc": "automated",
         "cop": "unverified",
         "vd": "automated",
         "sc": "unverified",
@@ -3031,14 +3051,15 @@
       },
       "urls": {
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
-        "vd": "https://github.com/NousResearch"
+        "vd": "https://github.com/NousResearch",
+        "mc": "https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-405B"
       },
       "api_urls": {
         "mc": "https://huggingface.co/api/models/NousResearch/Hermes-3-Llama-3.1-405B",
         "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
         "vd": "https://api.github.com/repos/NousResearch/.github/contents/SECURITY.md"
       },
-      "last_run": "2026-05-30T11:24:22+00:00"
+      "last_run": "2026-05-30T11:31:15+00:00"
     }
   ]
 }
