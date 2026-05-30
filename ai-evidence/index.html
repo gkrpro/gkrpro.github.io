@@ -56,39 +56,44 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* Site nav bar — styled to match gkrpro.github.io main nav */
+    /* Site nav bar — matches your existing nav items */
     .site-nav {
-      background: var(--bg-2);
-      border-bottom: 1px solid var(--border-2);
+      border-bottom: 0.5px solid var(--border);
+      background: var(--bg);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 10;
     }
-    .site-nav ul {
-      list-style: none;
-      max-width: 1200px;
+    .site-nav-inner {
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 14px 24px;
       display: flex;
-      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
       flex-wrap: wrap;
     }
-    .site-nav a {
-      display: block;
-      padding: 1rem 0;
-      color: var(--text);
-      text-decoration: none;
+    .site-brand {
       font-weight: 500;
-      border-bottom: 3px solid transparent;
-      transition: border-color 0.2s;
+      font-size: 16px;
+      color: var(--text);
     }
-    .site-nav a:hover {
-      border-bottom-color: #0066cc;
-      text-decoration: none;
+    .site-brand a { color: inherit; }
+    .site-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 14px;
     }
-    .site-nav a.current {
-      border-bottom-color: #0066cc;
+    .site-links a {
+      color: var(--text-2);
     }
+    .site-links a.current {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .site-links a:hover { color: var(--text); text-decoration: none; }
 
     main {
       max-width: 1400px;
@@ -138,11 +143,28 @@
     table.evd tbody tr:hover { background: var(--bg-2); cursor: pointer; }
     .mdl { font-weight: 500; font-size: 13px; }
     .mdl-prov { font-size: 11px; color: var(--text-2); }
-    .cell { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 4px; font-size: 13px; }
+    .cell { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 4px; font-size: 13px; position: relative; }
     .cell.yes { color: var(--c-teal-800); background: var(--c-teal-50); }
     .cell.no { color: var(--c-gray-800); background: var(--c-gray-50); }
     .cell.part { color: var(--c-amber-800); background: var(--c-amber-50); }
     .cell.na { color: var(--text-3); background: transparent; }
+    /* Auto-verified cells get a small live-indicator dot in the corner */
+    .cell.auto::after {
+      content: '';
+      position: absolute;
+      top: 1px; right: 1px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    th.auto-col { position: relative; }
+    th.auto-col::after {
+      content: '●';
+      color: var(--accent);
+      font-size: 8px;
+      margin-left: 4px;
+      vertical-align: 2px;
+    }
     .badge { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 500; }
     .b-gpaisr { background: var(--c-pink-50); color: var(--c-pink-800); }
     .b-gpai { background: var(--c-blue-50); color: var(--c-blue-800); }
@@ -182,14 +204,17 @@
 
   <!-- Site navigation matching the rest of gkrpro.github.io -->
   <nav class="site-nav" aria-label="Main navigation">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/blog.html">Blog</a></li>
-      <li><a href="/frameworks.html">Frameworks &amp; Guides</a></li>
-      <li><a href="/decision-records.html">Decision Records</a></li>
-      <li><a href="ai-evidence/index.html" class="current" aria-current="page">AI Evidence</a></li>
-      <li><a href="/about.html">About</a></li>
-    </ul>
+    <div class="site-nav-inner">
+      <div class="site-brand"><a href="/">Greg</a></div>
+      <div class="site-links">
+        <a href="/">Home</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/frameworks.html">Frameworks &amp; Guides</a>
+        <a href="/decision-records.html">Decision Records</a>
+        <a href="/ai-evidence/" class="current" aria-current="page">AI Evidence</a>
+        <a href="/about.html">About</a>
+      </div>
+    </div>
   </nav>
 
   <main>
@@ -201,6 +226,10 @@
 
     <div class="banner">
       <strong>Methodology note:</strong> This dashboard catalogues what public evidence exists per model from the source allowlist (provider sites, EU AI Office, Hugging Face, GitHub, AISI, HELM). No model probing. No vendor-comparative claims. Aligned to the AI Model Use Rating Framework v1.0.
+    </div>
+
+    <div class="banner" style="border-left-color: var(--c-teal-800); background: var(--c-teal-50); color: var(--c-teal-800);">
+      <strong>● Live-refreshed cells:</strong> Columns marked with a small dot — <strong>CoP</strong>, <strong>MC</strong>, <strong>TD</strong>, <strong>VD</strong> — are auto-fetched on every workflow run (EU AI Office signatory list, Hugging Face model cards, GitHub SECURITY.md). All other cells are manually curated. Cells with the indicator dot in the corner show the auto-verified value; cells without it are manual.
     </div>
 
     <div class="stats">
@@ -234,22 +263,22 @@
             <th rowspan="2">Model</th>
             <th rowspan="2">Origin</th>
             <th rowspan="2" title="EU AI Act classification">AI Act</th>
-            <th rowspan="2" title="GPAI Code of Practice signatory status">CoP</th>
+            <th rowspan="2" title="GPAI Code of Practice signatory status — auto-refreshed from the EU AI Office page" class="auto-col">CoP</th>
             <th class="grp" colspan="3" style="text-align: center;">Transparency</th>
             <th class="grp" colspan="3" style="text-align: center;">Safety eval</th>
             <th class="grp" colspan="3" style="text-align: center;">Security posture</th>
             <th class="grp" colspan="3" style="text-align: center;">Privacy</th>
           </tr>
           <tr>
-            <th title="Model card">MC</th>
+            <th title="Model card — auto-refreshed from Hugging Face for open-weight models" class="auto-col">MC</th>
             <th title="System card">SC</th>
-            <th title="Training data disclosure">TD</th>
+            <th title="Training data disclosure — auto-refreshed from Hugging Face for open-weight models" class="auto-col">TD</th>
             <th title="Safety evaluation published">SE</th>
             <th title="Independent third-party evaluation">3P</th>
             <th title="Red-team report">RT</th>
             <th title="SOC 2 attestation">S2</th>
             <th title="ISO/IEC 27001 certification">27</th>
-            <th title="Vulnerability disclosure policy">VD</th>
+            <th title="Vulnerability disclosure policy — auto-refreshed from GitHub SECURITY.md for open-weight models" class="auto-col">VD</th>
             <th title="Data Processing Agreement">DPA</th>
             <th title="EU data-residency option">EU</th>
             <th title="No-training-on-customer-data clause">NT</th>
@@ -346,21 +375,31 @@
   <script>
     const STATUS = {1: 'yes', 0: 'no', 2: 'part', 3: 'na'};
     const SYM = {1: '✓', 0: '·', 2: '~', 3: '–'};
+    const AUTO_CELLS = new Set(['mc', 'td', 'cop', 'vd']);
 
-    function cell(v) {
+    function isAuto(model, cell) {
+      const prov = model._provenance || {};
+      const p = prov[cell];
+      return p && p.mode === 'auto';
+    }
+
+    function cell(v, autoFlag) {
       const c = STATUS[v] || 'no';
       const s = SYM[v] || '·';
-      return '<span class="cell ' + c + '" aria-hidden="true">' + s + '</span>';
+      const cls = 'cell ' + c + (autoFlag ? ' auto' : '');
+      const title = autoFlag ? ' title="auto-verified"' : '';
+      return '<span class="' + cls + '"' + title + ' aria-hidden="true">' + s + '</span>';
     }
     function tierBadge(t) {
       if (t === 'GPAISR') return '<span class="badge b-gpaisr">GPAISR</span>';
       if (t === 'GPAI') return '<span class="badge b-gpai">GPAI</span>';
       return '<span class="badge b-open">Open</span>';
     }
-    function copBadge(c) {
-      if (c === 'F') return '<span class="badge b-cop-f">Full</span>';
-      if (c === 'S') return '<span class="badge b-cop-s">Safety</span>';
-      return '<span class="badge b-cop-n">No</span>';
+    function copBadge(c, autoFlag) {
+      const dot = autoFlag ? '<span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);margin-left:4px;vertical-align:middle;" title="auto-verified"></span>' : '';
+      if (c === 'F') return '<span class="badge b-cop-f">Full</span>' + dot;
+      if (c === 'S') return '<span class="badge b-cop-s">Safety</span>' + dot;
+      return '<span class="badge b-cop-n">No</span>' + dot;
     }
 
     let MODELS = [];
@@ -386,11 +425,11 @@
           '<td><div class="mdl">' + m.n + '</div><div class="mdl-prov">' + m.p + ' · ' + m.v + '</div></td>' +
           '<td style="font-size: 11px; color: var(--text-2);">' + m.o + '</td>' +
           '<td>' + tierBadge(m.t) + '</td>' +
-          '<td>' + copBadge(m.cop) + '</td>' +
-          '<td>' + cell(m.mc) + '</td><td>' + cell(m.sc) + '</td><td>' + cell(m.td) + '</td>' +
-          '<td>' + cell(m.se) + '</td><td>' + cell(m.tp) + '</td><td>' + cell(m.rt) + '</td>' +
-          '<td>' + cell(m.s2) + '</td><td>' + cell(m.iso) + '</td><td>' + cell(m.vd) + '</td>' +
-          '<td>' + cell(m.dpa) + '</td><td>' + cell(m.eu) + '</td><td>' + cell(m.nt) + '</td>' +
+          '<td>' + copBadge(m.cop, isAuto(m, 'cop')) + '</td>' +
+          '<td>' + cell(m.mc, isAuto(m, 'mc')) + '</td><td>' + cell(m.sc, false) + '</td><td>' + cell(m.td, isAuto(m, 'td')) + '</td>' +
+          '<td>' + cell(m.se, false) + '</td><td>' + cell(m.tp, false) + '</td><td>' + cell(m.rt, false) + '</td>' +
+          '<td>' + cell(m.s2, false) + '</td><td>' + cell(m.iso, false) + '</td><td>' + cell(m.vd, isAuto(m, 'vd')) + '</td>' +
+          '<td>' + cell(m.dpa, false) + '</td><td>' + cell(m.eu, false) + '</td><td>' + cell(m.nt, false) + '</td>' +
           '</tr>';
       }).join('');
       document.getElementById('s-total').textContent = MODELS.length;
@@ -401,25 +440,42 @@
 
     function showDetail(idx) {
       const m = MODELS[idx];
+      const prov = m._provenance || {};
       const items = [
-        ['Model card (MC)', m.mc, m.urls && m.urls.mc],
-        ['System card (SC)', m.sc, m.urls && m.urls.sc],
-        ['Training data disclosure (TD)', m.td, m.urls && m.urls.td],
-        ['Safety evaluation (SE)', m.se, m.urls && m.urls.se],
-        ['Independent 3rd-party eval (3P)', m.tp, m.urls && m.urls.tp],
-        ['Red-team report (RT)', m.rt, m.urls && m.urls.rt],
-        ['SOC 2 (S2)', m.s2, m.urls && m.urls.s2],
-        ['ISO 27001 (27)', m.iso, m.urls && m.urls.iso],
-        ['Vulnerability disclosure (VD)', m.vd, m.urls && m.urls.vd],
-        ['Data Processing Agreement (DPA)', m.dpa, m.urls && m.urls.dpa],
-        ['EU data residency (EU)', m.eu, m.urls && m.urls.eu],
-        ['No-train clause (NT)', m.nt, m.urls && m.urls.nt],
+        ['Model card', 'mc', m.mc],
+        ['System card', 'sc', m.sc],
+        ['Training data disclosure', 'td', m.td],
+        ['Safety evaluation', 'se', m.se],
+        ['Independent 3rd-party eval', 'tp', m.tp],
+        ['Red-team report', 'rt', m.rt],
+        ['SOC 2', 's2', m.s2],
+        ['ISO 27001', 'iso', m.iso],
+        ['Vulnerability disclosure', 'vd', m.vd],
+        ['Data Processing Agreement', 'dpa', m.dpa],
+        ['EU data residency', 'eu', m.eu],
+        ['No-train clause', 'nt', m.nt],
       ];
+
+      function provBadge(p) {
+        if (!p) return '<span style="color: var(--text-3); font-size: 10px;">manual</span>';
+        if (p.mode === 'auto') {
+          const when = p.captured_at ? p.captured_at.slice(0, 10) : '';
+          return '<span style="background: var(--c-teal-50); color: var(--c-teal-800); font-size: 10px; padding: 1px 5px; border-radius: 3px; font-weight: 500;">● auto · ' + when + '</span>';
+        }
+        if (p.mode === 'manual-override') {
+          return '<span style="background: var(--c-amber-50); color: var(--c-amber-800); font-size: 10px; padding: 1px 5px; border-radius: 3px;">manual override</span>';
+        }
+        return '<span style="color: var(--text-3); font-size: 10px;">manual</span>';
+      }
+
       detail.innerHTML =
         '<h3>' + m.n + ' <span style="font-weight: 400; color: var(--text-2); font-size: 12px;">' + m.p + ' · ' + m.v + ' · ' + m.o + '</span></h3>' +
-        items.map(([k, v, u]) => {
+        items.map(([k, key, v]) => {
+          const p = prov[key];
+          const u = (m.urls && m.urls[key]) || (p && p.source_url);
           const hasSource = (v === 1 || v === 2) && u;
-          return '<div class="detail-row"><span>' + k + '</span><span>' + SYM[v] + ' ' +
+          const note = p && p.note ? '<div style="font-size: 10px; color: var(--text-3); margin-top: 2px;">' + p.note + '</div>' : '';
+          return '<div class="detail-row"><span>' + k + ' ' + provBadge(p) + note + '</span><span>' + SYM[v] + ' ' +
             (hasSource ? '<a href="' + u + '" target="_blank" rel="noopener">source ↗</a>' :
              '<span style="color: var(--text-3);">no public source</span>') + '</span></div>';
         }).join('') +
