@@ -1,0 +1,41 @@
+<!--
+  AI Evidence Dashboard — drop-in snippet for the root index.html
+
+  HOW TO INTEGRATE:
+  -----------------
+  Two small edits to your existing `index.html`:
+
+  1. ADD A NAV LINK (top of page, where your nav items live).
+     Find your existing nav block with "Home / Blog / Frameworks & Guides / Decision Records / About"
+     and add this item between "Decision Records" and "About":
+
+         <a href="/ai-evidence/">AI Evidence</a>
+
+     Match the existing tag/class structure — your CSS will style it consistently.
+
+  2. ADD A CARD to "Key Frameworks & Assets".
+     Find that section in your existing `index.html` (where you already have cards for
+     "Three-Archetype Governance Model", "Multi-Cloud Control Mapping", etc.) and paste
+     the block below alongside them. Use the same wrapper element your other cards use
+     so the styling carries over.
+-->
+
+<div class="framework-card">
+  <h4>🛡️ AI Model Security Evidence Dashboard</h4>
+  <p>
+    Public transparency tool cataloguing what security-relevant evidence exists per AI model — model cards, system cards, SOC 2, ISO 27001, EU AI Act &amp; GPAI Code of Practice status, DPA, no-training clauses. 60+ frontier and open-weight models. Not a ranking; not a score. Each cell links to a primary source.
+  </p>
+  <p>
+    <a href="/ai-evidence/" class="cta-link">Open the dashboard →</a>
+  </p>
+</div>
+
+<!--
+  NOTES:
+  - The class names above (`framework-card`, `cta-link`) are placeholders. Replace them
+    with whatever class names your existing cards use so the styling matches.
+  - Your existing cards use h4 for titles (based on the visible structure). If they use
+    a different tag (h3, etc.), match it.
+  - If your existing cards have a small icon or "tag" element (e.g. category badge),
+    add the same pattern here.
+-->

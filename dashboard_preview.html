@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Evidence Dashboard — Greg</title>
+  <meta name="description" content="Public dashboard cataloguing security-relevant evidence availability for AI models. Not a ranking.">
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --bg-2: #F7F6F2;
+      --bg-3: #F1EFE8;
+      --text: #1F1F1E;
+      --text-2: #5F5E5A;
+      --text-3: #888780;
+      --accent: #185FA5;
+      --border: rgba(0,0,0,0.10);
+      --border-2: rgba(0,0,0,0.18);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --c-teal-50: #E1F5EE; --c-teal-800: #085041;
+      --c-amber-50: #FAEEDA; --c-amber-800: #633806;
+      --c-gray-50: #F1EFE8; --c-gray-800: #444441;
+      --c-blue-50: #E6F1FB; --c-blue-800: #0C447C;
+      --c-pink-50: #FBEAF0; --c-pink-800: #72243E;
+      --c-green-50: #EAF3DE; --c-green-800: #27500A;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1A1A1A;
+        --bg-2: #232321;
+        --bg-3: #2C2C2A;
+        --text: #F1EFE8;
+        --text-2: #B4B2A9;
+        --text-3: #888780;
+        --accent: #85B7EB;
+        --border: rgba(255,255,255,0.12);
+        --border-2: rgba(255,255,255,0.20);
+        --c-teal-50: #085041; --c-teal-800: #9FE1CB;
+        --c-amber-50: #633806; --c-amber-800: #FAC775;
+        --c-gray-50: #444441; --c-gray-800: #D3D1C7;
+        --c-blue-50: #0C447C; --c-blue-800: #B5D4F4;
+        --c-pink-50: #72243E; --c-pink-800: #F4C0D1;
+        --c-green-50: #27500A; --c-green-800: #C0DD97;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--bg);
+      margin: 0;
+      line-height: 1.55;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Site nav bar — matches your existing nav items */
+    .site-nav {
+      border-bottom: 0.5px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .site-nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .site-brand {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--text);
+    }
+    .site-brand a { color: inherit; }
+    .site-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+    .site-links a {
+      color: var(--text-2);
+    }
+    .site-links a.current {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .site-links a:hover { color: var(--text); text-decoration: none; }
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1 { font-size: 26px; font-weight: 500; margin: 8px 0 0; }
+    h2 { font-size: 18px; font-weight: 500; margin: 32px 0 12px; }
+    h3 { font-size: 14px; font-weight: 500; margin: 0 0 8px; }
+    .lead { font-size: 14px; color: var(--text-2); margin: 4px 0 16px; max-width: 800px; }
+    .breadcrumb { font-size: 12px; color: var(--text-3); margin-bottom: 4px; }
+    .breadcrumb a { color: var(--text-3); }
+
+    .banner { font-size: 13px; color: var(--text-2); background: var(--bg-2); padding: 12px 16px; border-radius: var(--radius-md); margin-bottom: 16px; border-left: 3px solid var(--accent); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin-bottom: 16px; }
+    .stat { background: var(--bg-2); border-radius: var(--radius-md); padding: 10px 14px; }
+    .stat-l { font-size: 12px; color: var(--text-2); }
+    .stat-v { font-size: 22px; font-weight: 500; }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .controls input, .controls select {
+      font-family: inherit;
+      font-size: 13px;
+      padding: 8px 10px;
+      border: 0.5px solid var(--border-2);
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 36px;
+    }
+    .controls input { flex: 1; min-width: 200px; }
+    .tbl-wrap { overflow-x: auto; border: 0.5px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); }
+    table.evd { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 1100px; }
+    table.evd thead th {
+      position: sticky; top: 0; z-index: 2;
+      background: var(--bg);
+      border-bottom: 0.5px solid var(--border);
+      padding: 10px 8px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 11px;
+      color: var(--text-2);
+      white-space: nowrap;
+    }
+    table.evd thead th.grp { background: var(--bg-2); }
+    table.evd thead th[title] { cursor: help; text-decoration: underline dotted; text-underline-offset: 3px; }
+    table.evd tbody td { padding: 8px; border-bottom: 0.5px solid var(--border); vertical-align: middle; white-space: nowrap; }
+    table.evd tbody tr:hover { background: var(--bg-2); cursor: pointer; }
+    .mdl { font-weight: 500; font-size: 13px; }
+    .mdl-prov { font-size: 11px; color: var(--text-2); }
+    .cell { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 4px; font-size: 13px; }
+    .cell.yes { color: var(--c-teal-800); background: var(--c-teal-50); }
+    .cell.no { color: var(--c-gray-800); background: var(--c-gray-50); }
+    .cell.part { color: var(--c-amber-800); background: var(--c-amber-50); }
+    .cell.na { color: var(--text-3); background: transparent; }
+    .badge { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 500; }
+    .b-gpaisr { background: var(--c-pink-50); color: var(--c-pink-800); }
+    .b-gpai { background: var(--c-blue-50); color: var(--c-blue-800); }
+    .b-open { background: var(--c-green-50); color: var(--c-green-800); }
+    .b-cop-f { background: var(--c-teal-50); color: var(--c-teal-800); }
+    .b-cop-s { background: var(--c-amber-50); color: var(--c-amber-800); }
+    .b-cop-n { background: var(--c-gray-50); color: var(--c-gray-800); }
+    .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: var(--text-2); margin: 8px 2px 0; }
+    .legend span { display: inline-flex; align-items: center; gap: 4px; }
+    .detail { background: var(--bg-2); border-radius: var(--radius-lg); padding: 16px 18px; margin-top: 12px; font-size: 13px; display: none; }
+    .detail.open { display: block; }
+    .detail-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 0.5px solid var(--border); font-size: 12px; gap: 12px; }
+    .detail-row:last-child { border-bottom: none; }
+    .glossary { background: var(--bg-2); border-radius: var(--radius-lg); padding: 20px 24px; margin-top: 32px; }
+    .glossary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px 24px; margin-top: 12px; }
+    .gl-item { font-size: 12px; }
+    .gl-key { font-weight: 500; color: var(--text); }
+    .gl-def { color: var(--text-2); }
+    .gl-section { grid-column: 1 / -1; font-size: 11px; font-weight: 500; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 8px; padding-top: 8px; border-top: 0.5px solid var(--border); }
+    .gl-section:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+    .site-footer {
+      border-top: 0.5px solid var(--border);
+      margin-top: 48px;
+      padding: 24px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 12px;
+      color: var(--text-3);
+    }
+    .site-footer a { color: var(--text-2); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+  <h2 class="sr-only">AI Model Security Evidence Dashboard — Greg's site.</h2>
+
+  <!-- Site navigation matching the rest of gkrpro.github.io -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="site-nav-inner">
+      <div class="site-brand"><a href="/">Greg</a></div>
+      <div class="site-links">
+        <a href="/">Home</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/frameworks.html">Frameworks &amp; Guides</a>
+        <a href="/decision-records.html">Decision Records</a>
+        <a href="/ai-evidence/" class="current" aria-current="page">AI Evidence</a>
+        <a href="/about.html">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <p class="breadcrumb"><a href="/">Home</a> · <a href="/frameworks.html">Frameworks &amp; Guides</a> · AI Evidence</p>
+    <h1>🤖 AI model security evidence — public dashboard</h1>
+    <p class="lead">
+      <strong>What this is:</strong> A transparency tool. Each cell answers a closed question — "is there a public model card?" "is there a published red-team report?" — with a source link. <strong>What it isn't:</strong> a ranking, a scoring system, or a recommendation. See the <a href="#glossary">glossary</a> for every term used.
+    </p>
+
+    <div class="banner">
+      <strong>Methodology note:</strong> This dashboard catalogues what public evidence exists per model from the source allowlist (provider sites, EU AI Office, Hugging Face, GitHub, AISI, HELM). No model probing. No vendor-comparative claims. Aligned to the AI Model Use Rating Framework v1.0.
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-l">Models tracked</div><div class="stat-v" id="s-total">—</div></div>
+      <div class="stat"><div class="stat-l">GPAISR-class</div><div class="stat-v" id="s-sr">—</div></div>
+      <div class="stat"><div class="stat-l">Open-weight</div><div class="stat-v" id="s-ow">—</div></div>
+      <div class="stat"><div class="stat-l">CoP signatories</div><div class="stat-v" id="s-cop">—</div></div>
+      <div class="stat"><div class="stat-l">Last refresh</div><div class="stat-v" style="font-size: 13px;" id="s-refresh">—</div></div>
+    </div>
+
+    <div class="controls">
+      <input type="text" id="f-search" placeholder="Search model or provider…" aria-label="Search">
+      <select id="f-origin" aria-label="Filter by origin">
+        <option value="">All origins</option>
+        <option value="SaaS">SaaS API</option>
+        <option value="Open-weight">Open-weight</option>
+        <option value="Hybrid">Hybrid</option>
+      </select>
+      <select id="f-tier" aria-label="Filter by AI Act tier">
+        <option value="">All AI Act tiers</option>
+        <option value="GPAISR">GPAISR-class</option>
+        <option value="GPAI">GPAI</option>
+        <option value="Open">Open-weight</option>
+      </select>
+    </div>
+
+    <div class="tbl-wrap">
+      <table class="evd" aria-label="Models and evidence availability">
+        <thead>
+          <tr>
+            <th rowspan="2">Model</th>
+            <th rowspan="2">Origin</th>
+            <th rowspan="2" title="EU AI Act classification">AI Act</th>
+            <th rowspan="2" title="GPAI Code of Practice signatory status">CoP</th>
+            <th class="grp" colspan="3" style="text-align: center;">Transparency</th>
+            <th class="grp" colspan="3" style="text-align: center;">Safety eval</th>
+            <th class="grp" colspan="3" style="text-align: center;">Security posture</th>
+            <th class="grp" colspan="3" style="text-align: center;">Privacy</th>
+          </tr>
+          <tr>
+            <th title="Model card">MC</th>
+            <th title="System card">SC</th>
+            <th title="Training data disclosure">TD</th>
+            <th title="Safety evaluation published">SE</th>
+            <th title="Independent third-party evaluation">3P</th>
+            <th title="Red-team report">RT</th>
+            <th title="SOC 2 attestation">S2</th>
+            <th title="ISO/IEC 27001 certification">27</th>
+            <th title="Vulnerability disclosure policy">VD</th>
+            <th title="Data Processing Agreement">DPA</th>
+            <th title="EU data-residency option">EU</th>
+            <th title="No-training-on-customer-data clause">NT</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="legend" role="note">
+      <span><span class="cell yes" aria-hidden="true">✓</span> Available</span>
+      <span><span class="cell part" aria-hidden="true">~</span> Partial / outdated</span>
+      <span><span class="cell no" aria-hidden="true">·</span> Not found</span>
+      <span><span class="cell na" aria-hidden="true">–</span> N/A</span>
+    </div>
+
+    <div id="detail" class="detail" aria-live="polite"></div>
+
+    <section class="glossary" id="glossary">
+      <h2 style="margin-top: 0;">Glossary — acronyms and terms</h2>
+      <p class="lead">Every acronym used on this page, defined.</p>
+
+      <div class="glossary-grid">
+        <div class="gl-section">EU regulatory framework</div>
+        <div class="gl-item"><div class="gl-key">EU AI Act</div><div class="gl-def">Regulation (EU) 2024/1689 — the EU's horizontal AI law. Risk-tiered, with specific obligations for general-purpose models. Enforcement with fines begins 2 August 2026.</div></div>
+        <div class="gl-item"><div class="gl-key">GPAI</div><div class="gl-def">General-Purpose AI model. EU AI Act classification for models with broad capabilities trained on large data — e.g. most foundation models.</div></div>
+        <div class="gl-item"><div class="gl-key">GPAISR</div><div class="gl-def">GPAI with Systemic Risk. The Act presumes systemic risk at the ≥10²⁵ FLOP training-compute threshold; the most capable frontier models fall in this band.</div></div>
+        <div class="gl-item"><div class="gl-key">CoP</div><div class="gl-def">Code of Practice — the voluntary GPAI Code of Practice published by the EU AI Office (July 2025). Full = all chapters; Safety = only Safety &amp; Security chapter; No = not signed.</div></div>
+        <div class="gl-item"><div class="gl-key">FLOP</div><div class="gl-def">Floating-point operation. Used in the AI Act's compute-based systemic-risk threshold (≥10²⁵ FLOPs during training).</div></div>
+        <div class="gl-item"><div class="gl-key">Annex IV</div><div class="gl-def">EU AI Act Annex IV — technical-documentation requirements for high-risk and GPAI systems.</div></div>
+
+        <div class="gl-section">Belgian context</div>
+        <div class="gl-item"><div class="gl-key">CCB</div><div class="gl-def">Centre for Cybersecurity Belgium. National cybersecurity authority and CSIRT; receives NIS2 incident notifications.</div></div>
+        <div class="gl-item"><div class="gl-key">BIPT</div><div class="gl-def">Belgian Institute for Postal Services and Telecommunications. Designated Belgium's main AI Act regulator per the Government Declaration of 31 January 2025.</div></div>
+        <div class="gl-item"><div class="gl-key">FOD BOSA</div><div class="gl-def">Federal Public Service for Policy and Support. Coordinates AI procurement standards and the AI4Belgium coalition.</div></div>
+        <div class="gl-item"><div class="gl-key">GBA / APD</div><div class="gl-def">Belgian Data Protection Authority. Publishes AI guidelines under GDPR.</div></div>
+        <div class="gl-item"><div class="gl-key">NIS2</div><div class="gl-def">Directive (EU) 2022/2555 on cybersecurity. Transposed by Law of 26 April 2024; in force since 18 October 2024. Significant incidents notified to CCB within 24 hours.</div></div>
+        <div class="gl-item"><div class="gl-key">CyberFundamentals</div><div class="gl-def">CCB's reference framework for demonstrating NIS2 compliance, alongside ISO/IEC 27001.</div></div>
+
+        <div class="gl-section">Security &amp; compliance frameworks</div>
+        <div class="gl-item"><div class="gl-key">GDPR</div><div class="gl-def">General Data Protection Regulation (EU) 2016/679. Articles 32 (security) and 35 (DPIA) apply to AI handling personal data.</div></div>
+        <div class="gl-item"><div class="gl-key">DPA</div><div class="gl-def">Data Processing Agreement — controller-processor contract required by GDPR Article 28.</div></div>
+        <div class="gl-item"><div class="gl-key">DPIA</div><div class="gl-def">Data Protection Impact Assessment — required under GDPR Article 35 for high-risk processing.</div></div>
+        <div class="gl-item"><div class="gl-key">SOC 2</div><div class="gl-def">Service Organization Control 2 — AICPA attestation covering security, availability, confidentiality, processing integrity, privacy.</div></div>
+        <div class="gl-item"><div class="gl-key">ISO/IEC 27001</div><div class="gl-def">International standard for Information Security Management Systems. Recognised by the CCB as a NIS2 reference framework.</div></div>
+        <div class="gl-item"><div class="gl-key">ISO/IEC 42001</div><div class="gl-def">International standard for AI Management Systems (AIMS), published 2023. First certifiable AI-specific management standard.</div></div>
+        <div class="gl-item"><div class="gl-key">CSA CCM</div><div class="gl-def">Cloud Security Alliance — Cloud Controls Matrix v4.1. Cloud-specific control framework.</div></div>
+        <div class="gl-item"><div class="gl-key">CAIQ</div><div class="gl-def">Consensus Assessments Initiative Questionnaire — vendor self-attestation paired with CCM.</div></div>
+        <div class="gl-item"><div class="gl-key">MCSB</div><div class="gl-def">Microsoft Cloud Security Benchmark v2. Azure-specific technical-implementation guidance.</div></div>
+        <div class="gl-item"><div class="gl-key">VDP</div><div class="gl-def">Vulnerability Disclosure Policy — public policy for external researchers to report vulnerabilities.</div></div>
+        <div class="gl-item"><div class="gl-key">SBOM</div><div class="gl-def">Software Bill of Materials — inventory of components, used for supply-chain assurance.</div></div>
+
+        <div class="gl-section">AI-specific frameworks</div>
+        <div class="gl-item"><div class="gl-key">NIST AI RMF</div><div class="gl-def">NIST AI Risk Management Framework 1.0 (Jan 2023). Four functions, seven trustworthy-AI characteristics.</div></div>
+        <div class="gl-item"><div class="gl-key">NIST AI 600-1</div><div class="gl-def">Generative AI Profile of the AI RMF, July 2024. Defines 12 GenAI-specific risk categories.</div></div>
+        <div class="gl-item"><div class="gl-key">OWASP LLM Top 10</div><div class="gl-def">OWASP Top 10 for LLM Applications (2025). LLM01 Prompt Injection, LLM03 Supply Chain, LLM04 Data &amp; Model Poisoning, etc.</div></div>
+        <div class="gl-item"><div class="gl-key">AISI</div><div class="gl-def">AI Security Institute (UK). Pre-deployment evaluations of frontier models.</div></div>
+        <div class="gl-item"><div class="gl-key">HELM</div><div class="gl-def">Holistic Evaluation of Language Models (Stanford CRFM). Multi-metric public benchmark suite.</div></div>
+        <div class="gl-item"><div class="gl-key">PyRIT</div><div class="gl-def">Python Risk Identification Toolkit — Microsoft's open-source AI red-teaming toolkit.</div></div>
+
+        <div class="gl-section">Evidence-column acronyms (table columns)</div>
+        <div class="gl-item"><div class="gl-key">MC — Model card</div><div class="gl-def">Standardised documentation of intended use, training, evaluation, limitations.</div></div>
+        <div class="gl-item"><div class="gl-key">SC — System card</div><div class="gl-def">Extends model card with deployment-system context (safety mitigations, content filters).</div></div>
+        <div class="gl-item"><div class="gl-key">TD — Training data disclosure</div><div class="gl-def">Whether training-data origin is publicly described.</div></div>
+        <div class="gl-item"><div class="gl-key">SE — Safety evaluation</div><div class="gl-def">Whether harm/toxicity/refusal evaluation results are published.</div></div>
+        <div class="gl-item"><div class="gl-key">3P — Independent 3rd-party eval</div><div class="gl-def">Whether an evaluation by a non-provider party exists publicly.</div></div>
+        <div class="gl-item"><div class="gl-key">RT — Red-team report</div><div class="gl-def">Whether an adversarial-testing report is publicly available.</div></div>
+        <div class="gl-item"><div class="gl-key">S2 — SOC 2</div><div class="gl-def">Whether the provider holds a visible SOC 2 attestation.</div></div>
+        <div class="gl-item"><div class="gl-key">27 — ISO 27001</div><div class="gl-def">Whether the provider holds ISO/IEC 27001 certification.</div></div>
+        <div class="gl-item"><div class="gl-key">VD — Vulnerability disclosure</div><div class="gl-def">Whether a public VDP or bug-bounty exists.</div></div>
+        <div class="gl-item"><div class="gl-key">DPA — Data Processing Agreement</div><div class="gl-def">Whether a standard GDPR Article 28 DPA is available.</div></div>
+        <div class="gl-item"><div class="gl-key">EU — EU data residency</div><div class="gl-def">Whether customer data can be processed in EU-only regions.</div></div>
+        <div class="gl-item"><div class="gl-key">NT — No-train clause</div><div class="gl-def">Whether enterprise terms include no-training-on-customer-data by default.</div></div>
+
+        <div class="gl-section">Other terms</div>
+        <div class="gl-item"><div class="gl-key">AI Office</div><div class="gl-def">European AI Office, within the European Commission. Enforces GPAI obligations; maintains CoP signatory list.</div></div>
+        <div class="gl-item"><div class="gl-key">CSIRT</div><div class="gl-def">Computer Security Incident Response Team. In Belgium, the CCB is the national CSIRT.</div></div>
+        <div class="gl-item"><div class="gl-key">HF</div><div class="gl-def">Hugging Face — open-source model hub where most open-weight models publish.</div></div>
+        <div class="gl-item"><div class="gl-key">RAG</div><div class="gl-def">Retrieval-Augmented Generation. Architecture combining LLM with external knowledge store.</div></div>
+        <div class="gl-item"><div class="gl-key">SaaS</div><div class="gl-def">Software-as-a-Service. Here: models accessed via the provider's API.</div></div>
+        <div class="gl-item"><div class="gl-key">Open-weight</div><div class="gl-def">Model whose weights are publicly downloadable. Note: not necessarily open-source.</div></div>
+      </div>
+    </section>
+
+    <p style="font-size: 11px; color: var(--text-3); margin-top: 24px;">
+      Sample data for prototype demonstration. Production version requires verified sources per cell (with captured-at timestamps and content hashes), NIS2-aligned operations, and trilingual UI (NL / FR / EN). Methodology is published separately and semantic-versioned. Right-of-reply: corrections via <a href="https://github.com/gkrpro/gkrpro.github.io/issues" target="_blank" rel="noopener">GitHub Issues</a>, reviewed within 15 working days.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Greg | Cloud Security Officer &amp; Architect · <a href="/">Home</a> · <a href="/frameworks.html">Frameworks</a> · <a href="https://github.com/gkrpro/gkrpro.github.io" target="_blank" rel="noopener">Source on GitHub</a>
+  </footer>
+
+  <script>
+    const STATUS = {1: 'yes', 0: 'no', 2: 'part', 3: 'na'};
+    const SYM = {1: '✓', 0: '·', 2: '~', 3: '–'};
+
+    function cell(v) {
+      const c = STATUS[v] || 'no';
+      const s = SYM[v] || '·';
+      return '<span class="cell ' + c + '" aria-hidden="true">' + s + '</span>';
+    }
+    function tierBadge(t) {
+      if (t === 'GPAISR') return '<span class="badge b-gpaisr">GPAISR</span>';
+      if (t === 'GPAI') return '<span class="badge b-gpai">GPAI</span>';
+      return '<span class="badge b-open">Open</span>';
+    }
+    function copBadge(c) {
+      if (c === 'F') return '<span class="badge b-cop-f">Full</span>';
+      if (c === 'S') return '<span class="badge b-cop-s">Safety</span>';
+      return '<span class="badge b-cop-n">No</span>';
+    }
+
+    let MODELS = [];
+    let META = {};
+    const tbody = document.getElementById('tbody');
+    const fSearch = document.getElementById('f-search');
+    const fOrigin = document.getElementById('f-origin');
+    const fTier = document.getElementById('f-tier');
+    const detail = document.getElementById('detail');
+
+    function render() {
+      const q = fSearch.value.toLowerCase();
+      const o = fOrigin.value;
+      const t = fTier.value;
+      const rows = MODELS.filter(m =>
+        (!q || m.n.toLowerCase().includes(q) || m.p.toLowerCase().includes(q)) &&
+        (!o || m.o === o) &&
+        (!t || m.t === t)
+      );
+      tbody.innerHTML = rows.map(m => {
+        const idx = MODELS.indexOf(m);
+        return '<tr data-idx="' + idx + '">' +
+          '<td><div class="mdl">' + m.n + '</div><div class="mdl-prov">' + m.p + ' · ' + m.v + '</div></td>' +
+          '<td style="font-size: 11px; color: var(--text-2);">' + m.o + '</td>' +
+          '<td>' + tierBadge(m.t) + '</td>' +
+          '<td>' + copBadge(m.cop) + '</td>' +
+          '<td>' + cell(m.mc) + '</td><td>' + cell(m.sc) + '</td><td>' + cell(m.td) + '</td>' +
+          '<td>' + cell(m.se) + '</td><td>' + cell(m.tp) + '</td><td>' + cell(m.rt) + '</td>' +
+          '<td>' + cell(m.s2) + '</td><td>' + cell(m.iso) + '</td><td>' + cell(m.vd) + '</td>' +
+          '<td>' + cell(m.dpa) + '</td><td>' + cell(m.eu) + '</td><td>' + cell(m.nt) + '</td>' +
+          '</tr>';
+      }).join('');
+      document.getElementById('s-total').textContent = MODELS.length;
+      document.getElementById('s-sr').textContent = MODELS.filter(m => m.t === 'GPAISR').length;
+      document.getElementById('s-ow').textContent = MODELS.filter(m => m.o === 'Open-weight').length;
+      document.getElementById('s-cop').textContent = MODELS.filter(m => m.cop === 'F' || m.cop === 'S').length;
+    }
+
+    function showDetail(idx) {
+      const m = MODELS[idx];
+      const items = [
+        ['Model card (MC)', m.mc, m.urls && m.urls.mc],
+        ['System card (SC)', m.sc, m.urls && m.urls.sc],
+        ['Training data disclosure (TD)', m.td, m.urls && m.urls.td],
+        ['Safety evaluation (SE)', m.se, m.urls && m.urls.se],
+        ['Independent 3rd-party eval (3P)', m.tp, m.urls && m.urls.tp],
+        ['Red-team report (RT)', m.rt, m.urls && m.urls.rt],
+        ['SOC 2 (S2)', m.s2, m.urls && m.urls.s2],
+        ['ISO 27001 (27)', m.iso, m.urls && m.urls.iso],
+        ['Vulnerability disclosure (VD)', m.vd, m.urls && m.urls.vd],
+        ['Data Processing Agreement (DPA)', m.dpa, m.urls && m.urls.dpa],
+        ['EU data residency (EU)', m.eu, m.urls && m.urls.eu],
+        ['No-train clause (NT)', m.nt, m.urls && m.urls.nt],
+      ];
+      detail.innerHTML =
+        '<h3>' + m.n + ' <span style="font-weight: 400; color: var(--text-2); font-size: 12px;">' + m.p + ' · ' + m.v + ' · ' + m.o + '</span></h3>' +
+        items.map(([k, v, u]) => {
+          const hasSource = (v === 1 || v === 2) && u;
+          return '<div class="detail-row"><span>' + k + '</span><span>' + SYM[v] + ' ' +
+            (hasSource ? '<a href="' + u + '" target="_blank" rel="noopener">source ↗</a>' :
+             '<span style="color: var(--text-3);">no public source</span>') + '</span></div>';
+        }).join('') +
+        '<p style="font-size: 11px; color: var(--text-3); margin: 12px 0 0;">Last verified: ' + (m.last_verified || 'unknown') + '</p>';
+      detail.classList.add('open');
+      detail.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+    }
+
+    tbody.addEventListener('click', e => {
+      const tr = e.target.closest('tr');
+      if (tr && tr.dataset.idx !== undefined) showDetail(parseInt(tr.dataset.idx, 10));
+    });
+    fSearch.addEventListener('input', render);
+    fOrigin.addEventListener('change', render);
+    fTier.addEventListener('change', render);
+
+    fetch('./data/models.json', {cache: 'no-cache'})
+      .then(r => r.json())
+      .then(data => {
+        MODELS = data.models || [];
+        META = data.meta || {};
+        document.getElementById('s-refresh').textContent = META.generated_at || '—';
+        render();
+      })
+      .catch(err => {
+        tbody.innerHTML = '<tr><td colspan="16" style="padding: 16px; color: var(--text-2);">Failed to load data/models.json. ' + err.message + '</td></tr>';
+      });
+  </script>
+</body>
+</html>

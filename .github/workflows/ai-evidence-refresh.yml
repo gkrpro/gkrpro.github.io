@@ -1,0 +1,83 @@
+name: Refresh AI evidence dataset
+
+# Three trigger types:
+#   1. schedule (Mondays 06:00 UTC, commits directly)
+#   2. workflow_dispatch (manual button, opens a PR)
+#   3. repository_dispatch (external webhook, opens a PR)
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual refresh (logged in commit message)'
+        required: false
+        default: 'manual'
+  repository_dispatch:
+    types: [ai-evidence-refresh]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r ai-evidence/collectors/requirements.txt
+
+      - name: Run collector
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python ai-evidence/collectors/refresh.py \
+            --input ai-evidence/data/models.json \
+            --output ai-evidence/data/models.json \
+            --log-dir ai-evidence/data/audit
+
+      - name: Detect changes
+        id: diff
+        run: |
+          if git diff --quiet ai-evidence/data/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat ai-evidence/data/
+          fi
+
+      - name: Commit scheduled refresh
+        if: steps.diff.outputs.changed == 'true' && github.event_name == 'schedule'
+        run: |
+          git config user.name "evidence-collector-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add ai-evidence/data/
+          git commit -m "chore(ai-evidence): scheduled refresh $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
+
+      - name: Open review PR
+        if: steps.diff.outputs.changed == 'true' && github.event_name != 'schedule'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(ai-evidence): refresh evidence dataset"
+          title: "AI evidence refresh — review before publish"
+          body: |
+            Automated refresh of `ai-evidence/data/models.json`.
+
+            Trigger: `${{ github.event_name }}`
+            Reason: `${{ github.event.inputs.reason || github.event.client_payload.reason || 'n/a' }}`
+
+            Review the diff before merging. Each changed cell should have a verifiable source URL in `ai-evidence/data/audit/`.
+          branch: ai-evidence-refresh-${{ github.run_id }}
+          delete-branch: true
