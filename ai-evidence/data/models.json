@@ -2,74 +2,6378 @@
   "meta": {
     "version": "1.0",
     "generated_at": "2026-05-30",
-    "generator": "manual-seed",
-    "auto_fetched_cells": ["cop", "mc", "td", "vd"],
-    "notes": "Cells `mc`, `td`, `cop`, `vd` refresh automatically on every workflow run via live fetchers (Hugging Face, EU AI Office, GitHub). All other cells are manually curated and marked `mode: manual` in the per-model `_provenance` block. The dashboard renders this distinction."
+    "generator": "collectors/refresh.py",
+    "auto_fetched_cells": [
+      "cop",
+      "mc",
+      "td",
+      "vd"
+    ],
+    "notes": "Cells `mc`, `td`, `cop`, `vd` refresh automatically on every workflow run via live fetchers (Hugging Face, EU AI Office, GitHub). All other cells are manually curated and marked `mode: manual` in the per-model `_provenance` block. The dashboard renders this distinction.",
+    "total_changes_this_run": 41
   },
   "models": [
-    {"n":"Claude Opus 4.7","p":"Anthropic","o":"SaaS","t":"GPAISR","cop":"F","v":"4.7","mc":1,"sc":1,"td":2,"se":1,"tp":1,"rt":1,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Claude Sonnet 4.6","p":"Anthropic","o":"SaaS","t":"GPAISR","cop":"F","v":"4.6","mc":1,"sc":1,"td":2,"se":1,"tp":1,"rt":1,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Claude Haiku 4.5","p":"Anthropic","o":"SaaS","t":"GPAI","cop":"F","v":"4.5","mc":1,"sc":1,"td":2,"se":1,"tp":1,"rt":1,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"GPT-5.5","p":"OpenAI","o":"SaaS","t":"GPAISR","cop":"F","v":"5.5","mc":1,"sc":1,"td":2,"se":1,"tp":1,"rt":1,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"GPT-5.5 Pro","p":"OpenAI","o":"SaaS","t":"GPAISR","cop":"F","v":"5.5-pro","mc":1,"sc":1,"td":2,"se":1,"tp":2,"rt":1,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"GPT-5.4","p":"OpenAI","o":"SaaS","t":"GPAISR","cop":"F","v":"5.4","mc":1,"sc":1,"td":2,"se":1,"tp":1,"rt":1,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"GPT-5 mini","p":"OpenAI","o":"SaaS","t":"GPAI","cop":"F","v":"5-mini","mc":1,"sc":1,"td":2,"se":1,"tp":1,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"GPT-5 nano","p":"OpenAI","o":"SaaS","t":"GPAI","cop":"F","v":"5-nano","mc":1,"sc":1,"td":0,"se":0,"tp":0,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Gemini 3.1 Pro","p":"Google DeepMind","o":"SaaS","t":"GPAISR","cop":"F","v":"3.1-pro","mc":1,"sc":1,"td":2,"se":1,"tp":1,"rt":1,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Gemini 3.5 Flash","p":"Google DeepMind","o":"SaaS","t":"GPAI","cop":"F","v":"3.5-flash","mc":1,"sc":2,"td":0,"se":1,"tp":2,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Gemini 3 Flash-Lite","p":"Google DeepMind","o":"SaaS","t":"GPAI","cop":"F","v":"3-fl","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Grok 4.3","p":"xAI","o":"SaaS","t":"GPAISR","cop":"S","v":"4.3","mc":2,"sc":0,"td":0,"se":2,"tp":0,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":1,"eu":0,"nt":2,"last_verified":"2026-05-30"},
-    {"n":"Grok 4 Fast","p":"xAI","o":"SaaS","t":"GPAI","cop":"S","v":"4-fast","mc":2,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":1,"eu":0,"nt":2,"last_verified":"2026-05-30"},
-    {"n":"DeepSeek V4 Pro","p":"DeepSeek","o":"SaaS","t":"GPAI","cop":"N","v":"v4-pro","mc":1,"sc":0,"td":2,"se":0,"tp":0,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Qwen 3.7 Max","p":"Alibaba","o":"SaaS","t":"GPAI","cop":"N","v":"3.7-max","mc":2,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":0,"iso":1,"vd":0,"dpa":1,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"GLM-5.1","p":"Z.AI","o":"SaaS","t":"GPAI","cop":"N","v":"5.1","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"MiniMax M2.5","p":"MiniMax","o":"SaaS","t":"GPAI","cop":"N","v":"M2.5","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Mistral Large 3","p":"Mistral AI","o":"Hybrid","t":"GPAI","cop":"F","v":"3","mc":1,"sc":0,"td":2,"se":1,"tp":2,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Mistral Medium 3","p":"Mistral AI","o":"Hybrid","t":"GPAI","cop":"F","v":"M3","mc":1,"sc":0,"td":0,"se":1,"tp":0,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Mistral Small 3","p":"Mistral AI","o":"Hybrid","t":"GPAI","cop":"F","v":"S3","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Cohere Command R+","p":"Cohere","o":"SaaS","t":"GPAI","cop":"F","v":"R+","mc":1,"sc":0,"td":2,"se":1,"tp":0,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Cohere Command R","p":"Cohere","o":"SaaS","t":"GPAI","cop":"F","v":"R","mc":1,"sc":0,"td":0,"se":1,"tp":0,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Kimi K2.6","p":"Moonshot","o":"SaaS","t":"GPAI","cop":"N","v":"2.6","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Reka Core 2","p":"Reka","o":"SaaS","t":"GPAI","cop":"N","v":"Core-2","mc":1,"sc":0,"td":0,"se":1,"tp":2,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":1,"eu":0,"nt":2,"last_verified":"2026-05-30"},
-    {"n":"Inflection-2.5","p":"Inflection","o":"SaaS","t":"GPAI","cop":"N","v":"2.5","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":1,"iso":0,"vd":0,"dpa":1,"eu":0,"nt":2,"last_verified":"2026-05-30"},
-    {"n":"AI21 Jamba 2","p":"AI21 Labs","o":"Hybrid","t":"GPAI","cop":"N","v":"2","mc":1,"sc":0,"td":2,"se":0,"tp":2,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":1,"eu":0,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Aleph Alpha Pharia 2","p":"Aleph Alpha","o":"Hybrid","t":"GPAI","cop":"F","v":"2","mc":1,"sc":0,"td":2,"se":1,"tp":0,"rt":0,"s2":0,"iso":1,"vd":1,"dpa":1,"eu":1,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Perplexity Sonar Pro","p":"Perplexity","o":"SaaS","t":"GPAI","cop":"N","v":"Sonar-Pro","mc":0,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":1,"iso":0,"vd":1,"dpa":1,"eu":0,"nt":1,"last_verified":"2026-05-30"},
-    {"n":"Llama 4.1 Maverick","p":"Meta","o":"Open-weight","t":"Open","cop":"N","v":"4.1","hf_slug":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","gh_repo":"meta-llama/llama-models","mc":1,"sc":0,"td":2,"se":1,"tp":1,"rt":1,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Llama 4 Scout","p":"Meta","o":"Open-weight","t":"Open","cop":"N","v":"4","hf_slug":"meta-llama/Llama-4-Scout-17B-16E-Instruct","gh_repo":"meta-llama/llama-models","mc":1,"sc":0,"td":2,"se":1,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Llama 3.3 70B","p":"Meta","o":"Open-weight","t":"Open","cop":"N","v":"3.3-70B","hf_slug":"meta-llama/Llama-3.3-70B-Instruct","gh_repo":"meta-llama/llama-models","mc":1,"sc":0,"td":2,"se":1,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Qwen 3.5","p":"Alibaba","o":"Open-weight","t":"Open","cop":"N","v":"3.5","hf_slug":"Qwen/Qwen3-235B-A22B","gh_repo":"QwenLM/Qwen3","mc":1,"sc":0,"td":0,"se":0,"tp":2,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Qwen 2.5 72B","p":"Alibaba","o":"Open-weight","t":"Open","cop":"N","v":"2.5-72B","hf_slug":"Qwen/Qwen2.5-72B-Instruct","gh_repo":"QwenLM/Qwen2.5","mc":1,"sc":0,"td":0,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"DeepSeek V4 Preview","p":"DeepSeek","o":"Open-weight","t":"Open","cop":"N","v":"v4-prev","hf_slug":"deepseek-ai/DeepSeek-V3","gh_repo":"deepseek-ai/DeepSeek-V3","mc":1,"sc":0,"td":2,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"DeepSeek V3.2","p":"DeepSeek","o":"Open-weight","t":"Open","cop":"N","v":"v3.2","hf_slug":"deepseek-ai/DeepSeek-V3","gh_repo":"deepseek-ai/DeepSeek-V3","mc":1,"sc":0,"td":2,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"DeepSeek R1","p":"DeepSeek","o":"Open-weight","t":"Open","cop":"N","v":"R1","hf_slug":"deepseek-ai/DeepSeek-R1","gh_repo":"deepseek-ai/DeepSeek-R1","mc":1,"sc":0,"td":2,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"GLM-5","p":"Z.AI","o":"Open-weight","t":"Open","cop":"N","v":"5","hf_slug":"zai-org/GLM-4.5","gh_repo":"zai-org/GLM-4.5","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"GLM-4.6","p":"Z.AI","o":"Open-weight","t":"Open","cop":"N","v":"4.6","hf_slug":"zai-org/GLM-4.5","gh_repo":"zai-org/GLM-4.5","mc":1,"sc":0,"td":0,"se":0,"tp":2,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Mistral 7B v0.3","p":"Mistral AI","o":"Open-weight","t":"Open","cop":"F","v":"7B-0.3","hf_slug":"mistralai/Mistral-7B-Instruct-v0.3","gh_repo":"mistralai/mistral-inference","mc":1,"sc":0,"td":0,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Mixtral 8x22B","p":"Mistral AI","o":"Open-weight","t":"Open","cop":"F","v":"8x22B","hf_slug":"mistralai/Mixtral-8x22B-Instruct-v0.1","gh_repo":"mistralai/mistral-inference","mc":1,"sc":0,"td":0,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Codestral 25B","p":"Mistral AI","o":"Open-weight","t":"Open","cop":"F","v":"25B","hf_slug":"mistralai/Codestral-22B-v0.1","gh_repo":"mistralai/mistral-inference","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Gemma 3 27B","p":"Google","o":"Open-weight","t":"Open","cop":"F","v":"3-27B","hf_slug":"google/gemma-3-27b-it","gh_repo":"google-deepmind/gemma","mc":1,"sc":0,"td":0,"se":1,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Gemma 3 9B","p":"Google","o":"Open-weight","t":"Open","cop":"F","v":"3-9B","hf_slug":"google/gemma-3-12b-it","gh_repo":"google-deepmind/gemma","mc":1,"sc":0,"td":0,"se":1,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Phi-4 14B","p":"Microsoft","o":"Open-weight","t":"Open","cop":"F","v":"4-14B","hf_slug":"microsoft/phi-4","gh_repo":"microsoft/phi-cookbook","mc":1,"sc":0,"td":2,"se":1,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Phi-4 multimodal","p":"Microsoft","o":"Open-weight","t":"Open","cop":"F","v":"4-mm","hf_slug":"microsoft/Phi-4-multimodal-instruct","gh_repo":"microsoft/phi-cookbook","mc":1,"sc":0,"td":2,"se":1,"tp":0,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Nemotron 4 340B","p":"NVIDIA","o":"Open-weight","t":"Open","cop":"N","v":"4-340B","hf_slug":"nvidia/Nemotron-4-340B-Instruct","gh_repo":"NVIDIA/Megatron-LM","mc":1,"sc":0,"td":0,"se":1,"tp":0,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Kimi K2 (open)","p":"Moonshot","o":"Open-weight","t":"Open","cop":"N","v":"K2","hf_slug":"moonshotai/Kimi-K2-Instruct","gh_repo":"MoonshotAI/Kimi-K2","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Yi-Large 2","p":"01.AI","o":"Open-weight","t":"Open","cop":"N","v":"Large-2","hf_slug":"01-ai/Yi-1.5-34B-Chat","gh_repo":"01-ai/Yi","mc":1,"sc":0,"td":0,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Falcon 3 180B","p":"TII","o":"Open-weight","t":"Open","cop":"N","v":"3-180B","hf_slug":"tiiuae/Falcon3-10B-Instruct","gh_repo":"tiiuae/Falcon3","mc":1,"sc":0,"td":2,"se":1,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Falcon 3 40B","p":"TII","o":"Open-weight","t":"Open","cop":"N","v":"3-40B","hf_slug":"tiiuae/Falcon3-10B-Instruct","gh_repo":"tiiuae/Falcon3","mc":1,"sc":0,"td":2,"se":1,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Command R+ (open)","p":"Cohere","o":"Open-weight","t":"Open","cop":"F","v":"R+-open","hf_slug":"CohereForAI/c4ai-command-r-plus-08-2024","gh_repo":"cohere-ai/cohere-python","mc":1,"sc":0,"td":2,"se":1,"tp":0,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"DBRX","p":"Databricks","o":"Open-weight","t":"Open","cop":"N","v":"v1","hf_slug":"databricks/dbrx-instruct","gh_repo":"databricks/dbrx","mc":1,"sc":0,"td":0,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"OLMo 2 32B","p":"AI2","o":"Open-weight","t":"Open","cop":"N","v":"2-32B","hf_slug":"allenai/OLMo-2-1124-13B-Instruct","gh_repo":"allenai/OLMo","mc":1,"sc":0,"td":1,"se":1,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"OLMo 2 7B","p":"AI2","o":"Open-weight","t":"Open","cop":"N","v":"2-7B","hf_slug":"allenai/OLMo-2-1124-7B-Instruct","gh_repo":"allenai/OLMo","mc":1,"sc":0,"td":1,"se":1,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Stable LM 3","p":"Stability AI","o":"Open-weight","t":"Open","cop":"N","v":"3","hf_slug":"stabilityai/stablelm-2-12b-chat","gh_repo":"Stability-AI/StableLM","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Pharia-1 (open)","p":"Aleph Alpha","o":"Open-weight","t":"Open","cop":"F","v":"1","hf_slug":"Aleph-Alpha/Pharia-1-LLM-7B-control","gh_repo":"Aleph-Alpha/aleph-alpha-client","mc":1,"sc":0,"td":2,"se":1,"tp":0,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"MPT-30B","p":"MosaicML","o":"Open-weight","t":"Open","cop":"N","v":"30B","hf_slug":"mosaicml/mpt-30b-instruct","gh_repo":"mosaicml/llm-foundry","mc":1,"sc":0,"td":0,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"BLOOM 176B","p":"BigScience","o":"Open-weight","t":"Open","cop":"N","v":"176B","hf_slug":"bigscience/bloom","gh_repo":"bigscience-workshop/Megatron-DeepSpeed","mc":1,"sc":0,"td":1,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Granite 3.2 8B","p":"IBM","o":"Open-weight","t":"Open","cop":"F","v":"3.2-8B","hf_slug":"ibm-granite/granite-3.2-8b-instruct","gh_repo":"ibm-granite/granite-3.2-language-models","mc":1,"sc":0,"td":2,"se":1,"tp":0,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Granite 3.2 34B","p":"IBM","o":"Open-weight","t":"Open","cop":"F","v":"3.2-34B","hf_slug":"ibm-granite/granite-3.2-8b-instruct","gh_repo":"ibm-granite/granite-3.2-language-models","mc":1,"sc":0,"td":2,"se":1,"tp":0,"rt":0,"s2":1,"iso":1,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"InternLM 3","p":"Shanghai AI Lab","o":"Open-weight","t":"Open","cop":"N","v":"3","hf_slug":"internlm/internlm3-8b-instruct","gh_repo":"InternLM/InternLM","mc":1,"sc":0,"td":0,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Yi-1.5 34B","p":"01.AI","o":"Open-weight","t":"Open","cop":"N","v":"1.5-34B","hf_slug":"01-ai/Yi-1.5-34B-Chat","gh_repo":"01-ai/Yi","mc":1,"sc":0,"td":0,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Mistral NeMo","p":"Mistral / NVIDIA","o":"Open-weight","t":"Open","cop":"F","v":"NeMo","hf_slug":"mistralai/Mistral-Nemo-Instruct-2407","gh_repo":"mistralai/mistral-inference","mc":1,"sc":0,"td":0,"se":0,"tp":1,"rt":0,"s2":0,"iso":0,"vd":1,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"},
-    {"n":"Hermes 3","p":"Nous Research","o":"Open-weight","t":"Open","cop":"N","v":"3","hf_slug":"NousResearch/Hermes-3-Llama-3.1-70B","gh_repo":"NousResearch/Hermes-3-Llama-3.1","mc":1,"sc":0,"td":0,"se":0,"tp":0,"rt":0,"s2":0,"iso":0,"vd":0,"dpa":0,"eu":0,"nt":0,"last_verified":"2026-05-30"}
+    {
+      "n": "Claude Opus 4.7",
+      "p": "Anthropic",
+      "o": "SaaS",
+      "t": "GPAISR",
+      "cop": "F",
+      "v": "4.7",
+      "mc": 1,
+      "sc": 1,
+      "td": 2,
+      "se": 1,
+      "tp": 1,
+      "rt": 1,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Anthropic)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Claude Sonnet 4.6",
+      "p": "Anthropic",
+      "o": "SaaS",
+      "t": "GPAISR",
+      "cop": "F",
+      "v": "4.6",
+      "mc": 1,
+      "sc": 1,
+      "td": 2,
+      "se": 1,
+      "tp": 1,
+      "rt": 1,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Anthropic)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Claude Haiku 4.5",
+      "p": "Anthropic",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "4.5",
+      "mc": 1,
+      "sc": 1,
+      "td": 2,
+      "se": 1,
+      "tp": 1,
+      "rt": 1,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Anthropic)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "GPT-5.5",
+      "p": "OpenAI",
+      "o": "SaaS",
+      "t": "GPAISR",
+      "cop": "F",
+      "v": "5.5",
+      "mc": 1,
+      "sc": 1,
+      "td": 2,
+      "se": 1,
+      "tp": 1,
+      "rt": 1,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (OpenAI)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "GPT-5.5 Pro",
+      "p": "OpenAI",
+      "o": "SaaS",
+      "t": "GPAISR",
+      "cop": "F",
+      "v": "5.5-pro",
+      "mc": 1,
+      "sc": 1,
+      "td": 2,
+      "se": 1,
+      "tp": 2,
+      "rt": 1,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (OpenAI)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "GPT-5.4",
+      "p": "OpenAI",
+      "o": "SaaS",
+      "t": "GPAISR",
+      "cop": "F",
+      "v": "5.4",
+      "mc": 1,
+      "sc": 1,
+      "td": 2,
+      "se": 1,
+      "tp": 1,
+      "rt": 1,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (OpenAI)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "GPT-5 mini",
+      "p": "OpenAI",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "5-mini",
+      "mc": 1,
+      "sc": 1,
+      "td": 2,
+      "se": 1,
+      "tp": 1,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (OpenAI)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "GPT-5 nano",
+      "p": "OpenAI",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "5-nano",
+      "mc": 1,
+      "sc": 1,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (OpenAI)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Gemini 3.1 Pro",
+      "p": "Google DeepMind",
+      "o": "SaaS",
+      "t": "GPAISR",
+      "cop": "F",
+      "v": "3.1-pro",
+      "mc": 1,
+      "sc": 1,
+      "td": 2,
+      "se": 1,
+      "tp": 1,
+      "rt": 1,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Google)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Gemini 3.5 Flash",
+      "p": "Google DeepMind",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "3.5-flash",
+      "mc": 1,
+      "sc": 2,
+      "td": 0,
+      "se": 1,
+      "tp": 2,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Google)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Gemini 3 Flash-Lite",
+      "p": "Google DeepMind",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "3-fl",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Google)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Grok 4.3",
+      "p": "xAI",
+      "o": "SaaS",
+      "t": "GPAISR",
+      "cop": "S",
+      "v": "4.3",
+      "mc": 2,
+      "sc": 0,
+      "td": 0,
+      "se": 2,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 1,
+      "eu": 0,
+      "nt": 2,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "manual-override",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "note": "auto says N, manual override preserves S",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      }
+    },
+    {
+      "n": "Grok 4 Fast",
+      "p": "xAI",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "S",
+      "v": "4-fast",
+      "mc": 2,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 1,
+      "eu": 0,
+      "nt": 2,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "manual-override",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "note": "auto says N, manual override preserves S",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      }
+    },
+    {
+      "n": "DeepSeek V4 Pro",
+      "p": "DeepSeek",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "N",
+      "v": "v4-pro",
+      "mc": 1,
+      "sc": 0,
+      "td": 2,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "DeepSeek: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Qwen 3.7 Max",
+      "p": "Alibaba",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "N",
+      "v": "3.7-max",
+      "mc": 2,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 1,
+      "vd": 0,
+      "dpa": 1,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Alibaba: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "GLM-5.1",
+      "p": "Z.AI",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "N",
+      "v": "5.1",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Z.AI: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "MiniMax M2.5",
+      "p": "MiniMax",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "N",
+      "v": "M2.5",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "MiniMax: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Mistral Large 3",
+      "p": "Mistral AI",
+      "o": "Hybrid",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "3",
+      "mc": 1,
+      "sc": 0,
+      "td": 2,
+      "se": 1,
+      "tp": 2,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Mistral AI)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Mistral Medium 3",
+      "p": "Mistral AI",
+      "o": "Hybrid",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "M3",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 1,
+      "tp": 0,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Mistral AI)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Mistral Small 3",
+      "p": "Mistral AI",
+      "o": "Hybrid",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "S3",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Mistral AI)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Cohere Command R+",
+      "p": "Cohere",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "R+",
+      "mc": 1,
+      "sc": 0,
+      "td": 2,
+      "se": 1,
+      "tp": 0,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Cohere)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Cohere Command R",
+      "p": "Cohere",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "R",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 1,
+      "tp": 0,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Cohere)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Kimi K2.6",
+      "p": "Moonshot",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "N",
+      "v": "2.6",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Moonshot: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Reka Core 2",
+      "p": "Reka",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "N",
+      "v": "Core-2",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 1,
+      "tp": 2,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 1,
+      "eu": 0,
+      "nt": 2,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Reka: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Inflection-2.5",
+      "p": "Inflection",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "N",
+      "v": "2.5",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 1,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 1,
+      "eu": 0,
+      "nt": 2,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Inflection: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "AI21 Jamba 2",
+      "p": "AI21 Labs",
+      "o": "Hybrid",
+      "t": "GPAI",
+      "cop": "N",
+      "v": "2",
+      "mc": 1,
+      "sc": 0,
+      "td": 2,
+      "se": 0,
+      "tp": 2,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 0,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "AI21 Labs: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Aleph Alpha Pharia 2",
+      "p": "Aleph Alpha",
+      "o": "Hybrid",
+      "t": "GPAI",
+      "cop": "F",
+      "v": "2",
+      "mc": 1,
+      "sc": 0,
+      "td": 2,
+      "se": 1,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 1,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Aleph Alpha)",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Perplexity Sonar Pro",
+      "p": "Perplexity",
+      "o": "SaaS",
+      "t": "GPAI",
+      "cop": "N",
+      "v": "Sonar-Pro",
+      "mc": 0,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 1,
+      "iso": 0,
+      "vd": 1,
+      "dpa": 1,
+      "eu": 0,
+      "nt": 1,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no hf_slug",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "no gh_repo",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Perplexity: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Llama 4.1 Maverick",
+      "p": "Meta",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "4.1",
+      "hf_slug": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+      "gh_repo": "meta-llama/llama-models",
+      "mc": 2,
+      "sc": 0,
+      "td": 2,
+      "se": 1,
+      "tp": 1,
+      "rt": 1,
+      "s2": 0,
+      "iso": 0,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "card-data only, no substantive README",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00",
+          "last_auto_error": "readme not fetched",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/meta-llama/llama-models/blob/main/SECURITY.md",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "SECURITY.md present",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Meta: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:42+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/meta-llama/llama-models/blob/main/SECURITY.md"
+      }
+    },
+    {
+      "n": "Llama 4 Scout",
+      "p": "Meta",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "4",
+      "hf_slug": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "gh_repo": "meta-llama/llama-models",
+      "mc": 2,
+      "sc": 0,
+      "td": 2,
+      "se": 1,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "card-data only, no substantive README",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00",
+          "last_auto_error": "readme not fetched",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/meta-llama/llama-models/blob/main/SECURITY.md",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "SECURITY.md present",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Meta: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/meta-llama/llama-models/blob/main/SECURITY.md"
+      }
+    },
+    {
+      "n": "Llama 3.3 70B",
+      "p": "Meta",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "3.3-70B",
+      "hf_slug": "meta-llama/Llama-3.3-70B-Instruct",
+      "gh_repo": "meta-llama/llama-models",
+      "mc": 2,
+      "sc": 0,
+      "td": 2,
+      "se": 1,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "card-data only, no substantive README",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00",
+          "last_auto_error": "readme not fetched",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/meta-llama/llama-models/blob/main/SECURITY.md",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "SECURITY.md present",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Meta: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/meta-llama/llama-models/blob/main/SECURITY.md"
+      }
+    },
+    {
+      "n": "Qwen 3.5",
+      "p": "Alibaba",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "3.5",
+      "hf_slug": "Qwen/Qwen3-235B-A22B",
+      "gh_repo": "QwenLM/Qwen3",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 0,
+      "tp": 2,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/Qwen/Qwen3-235B-A22B",
+          "captured_at": "2026-05-30",
+          "content_hash": "30c0bf0d8f2f926d",
+          "confidence": "high",
+          "note": "3 markers, 16782 chars",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/Qwen/Qwen3-235B-A22B",
+          "captured_at": "2026-05-30",
+          "content_hash": "30c0bf0d8f2f926d",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/QwenLM/Qwen3",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:44+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Alibaba: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:43+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/Qwen/Qwen3-235B-A22B",
+        "td": "https://huggingface.co/Qwen/Qwen3-235B-A22B",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/QwenLM/Qwen3"
+      }
+    },
+    {
+      "n": "Qwen 2.5 72B",
+      "p": "Alibaba",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "2.5-72B",
+      "hf_slug": "Qwen/Qwen2.5-72B-Instruct",
+      "gh_repo": "QwenLM/Qwen2.5",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "62d6f2176c0925b7",
+          "confidence": "high",
+          "note": "4 markers, 6256 chars",
+          "last_auto_attempt": "2026-05-30T11:15:44+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "62d6f2176c0925b7",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:44+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/QwenLM/Qwen3",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:45+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Alibaba: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:44+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
+        "td": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/QwenLM/Qwen3"
+      }
+    },
+    {
+      "n": "DeepSeek V4 Preview",
+      "p": "DeepSeek",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "v4-prev",
+      "hf_slug": "deepseek-ai/DeepSeek-V3",
+      "gh_repo": "deepseek-ai/DeepSeek-V3",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+          "captured_at": "2026-05-30",
+          "content_hash": "3739763a851074c8",
+          "confidence": "high",
+          "note": "3 markers, 19612 chars",
+          "last_auto_attempt": "2026-05-30T11:15:45+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+          "captured_at": "2026-05-30",
+          "content_hash": "3739763a851074c8",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:45+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/deepseek-ai/DeepSeek-V3",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:45+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "DeepSeek: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:45+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+        "td": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/deepseek-ai/DeepSeek-V3"
+      }
+    },
+    {
+      "n": "DeepSeek V3.2",
+      "p": "DeepSeek",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "v3.2",
+      "hf_slug": "deepseek-ai/DeepSeek-V3",
+      "gh_repo": "deepseek-ai/DeepSeek-V3",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+          "captured_at": "2026-05-30",
+          "content_hash": "3739763a851074c8",
+          "confidence": "high",
+          "note": "3 markers, 19612 chars",
+          "last_auto_attempt": "2026-05-30T11:15:45+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+          "captured_at": "2026-05-30",
+          "content_hash": "3739763a851074c8",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:45+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/deepseek-ai/DeepSeek-V3",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:46+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "DeepSeek: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:45+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+        "td": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/deepseek-ai/DeepSeek-V3"
+      }
+    },
+    {
+      "n": "DeepSeek R1",
+      "p": "DeepSeek",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "R1",
+      "hf_slug": "deepseek-ai/DeepSeek-R1",
+      "gh_repo": "deepseek-ai/DeepSeek-R1",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+          "captured_at": "2026-05-30",
+          "content_hash": "d26d26ddb518fee6",
+          "confidence": "high",
+          "note": "3 markers, 15962 chars",
+          "last_auto_attempt": "2026-05-30T11:15:46+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no training-data section detected",
+          "last_auto_attempt": "2026-05-30T11:15:46+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/deepseek-ai/DeepSeek-R1",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:46+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "DeepSeek: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:46+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+        "td": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/deepseek-ai/DeepSeek-R1"
+      }
+    },
+    {
+      "n": "GLM-5",
+      "p": "Z.AI",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "5",
+      "hf_slug": "zai-org/GLM-4.5",
+      "gh_repo": "zai-org/GLM-4.5",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/zai-org/GLM-4.5",
+          "captured_at": "2026-05-30",
+          "content_hash": "b88456f5d6793128",
+          "confidence": "high",
+          "note": "3 markers, 9622 chars",
+          "last_auto_attempt": "2026-05-30T11:15:46+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/zai-org/GLM-4.5",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no training-data section detected",
+          "last_auto_attempt": "2026-05-30T11:15:46+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/zai-org/GLM-4.5",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:47+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Z.AI: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:46+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/zai-org/GLM-4.5",
+        "td": "https://huggingface.co/zai-org/GLM-4.5",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/zai-org/GLM-4.5"
+      }
+    },
+    {
+      "n": "GLM-4.6",
+      "p": "Z.AI",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "4.6",
+      "hf_slug": "zai-org/GLM-4.5",
+      "gh_repo": "zai-org/GLM-4.5",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 2,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/zai-org/GLM-4.5",
+          "captured_at": "2026-05-30",
+          "content_hash": "b88456f5d6793128",
+          "confidence": "high",
+          "note": "3 markers, 9622 chars",
+          "last_auto_attempt": "2026-05-30T11:15:47+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/zai-org/GLM-4.5",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no training-data section detected",
+          "last_auto_attempt": "2026-05-30T11:15:47+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/zai-org/GLM-4.5",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:47+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Z.AI: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:47+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/zai-org/GLM-4.5",
+        "td": "https://huggingface.co/zai-org/GLM-4.5",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/zai-org/GLM-4.5"
+      }
+    },
+    {
+      "n": "Mistral 7B v0.3",
+      "p": "Mistral AI",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "7B-0.3",
+      "hf_slug": "mistralai/Mistral-7B-Instruct-v0.3",
+      "gh_repo": "mistralai/mistral-inference",
+      "mc": 2,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
+          "captured_at": "2026-05-30",
+          "content_hash": "3166974023134d97",
+          "confidence": "high",
+          "note": "partial: 2 markers, 7890 chars",
+          "last_auto_attempt": "2026-05-30T11:15:47+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no training-data section detected",
+          "last_auto_attempt": "2026-05-30T11:15:47+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/mistralai/mistral-inference",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:48+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Mistral AI)",
+          "last_auto_attempt": "2026-05-30T11:15:47+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
+        "td": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/mistralai/mistral-inference"
+      }
+    },
+    {
+      "n": "Mixtral 8x22B",
+      "p": "Mistral AI",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "8x22B",
+      "hf_slug": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+      "gh_repo": "mistralai/mistral-inference",
+      "mc": 2,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
+          "captured_at": "2026-05-30",
+          "content_hash": "312e8fa9f360c506",
+          "confidence": "high",
+          "note": "partial: 0 markers, 8775 chars",
+          "last_auto_attempt": "2026-05-30T11:15:48+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no training-data section detected",
+          "last_auto_attempt": "2026-05-30T11:15:48+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/mistralai/mistral-inference",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:48+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Mistral AI)",
+          "last_auto_attempt": "2026-05-30T11:15:48+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
+        "td": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/mistralai/mistral-inference"
+      }
+    },
+    {
+      "n": "Codestral 25B",
+      "p": "Mistral AI",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "25B",
+      "hf_slug": "mistralai/Codestral-22B-v0.1",
+      "gh_repo": "mistralai/mistral-inference",
+      "mc": 2,
+      "sc": 0,
+      "td": 1,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/mistralai/Codestral-22B-v0.1",
+          "captured_at": "2026-05-30",
+          "content_hash": "08ee9323f0fb57b5",
+          "confidence": "high",
+          "note": "partial: 1 markers, 7210 chars",
+          "last_auto_attempt": "2026-05-30T11:15:48+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/mistralai/Codestral-22B-v0.1",
+          "captured_at": "2026-05-30",
+          "content_hash": "08ee9323f0fb57b5",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:48+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/mistralai/mistral-inference",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:49+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Mistral AI)",
+          "last_auto_attempt": "2026-05-30T11:15:48+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/mistralai/Codestral-22B-v0.1",
+        "td": "https://huggingface.co/mistralai/Codestral-22B-v0.1",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/mistralai/mistral-inference"
+      }
+    },
+    {
+      "n": "Gemma 3 27B",
+      "p": "Google",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "3-27B",
+      "hf_slug": "google/gemma-3-27b-it",
+      "gh_repo": "google-deepmind/gemma",
+      "mc": 2,
+      "sc": 0,
+      "td": 0,
+      "se": 1,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/google/gemma-3-27b-it",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "card-data only, no substantive README",
+          "last_auto_attempt": "2026-05-30T11:15:49+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:49+00:00",
+          "last_auto_error": "readme not fetched",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/google-deepmind/gemma",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:49+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Google)",
+          "last_auto_attempt": "2026-05-30T11:15:49+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/google/gemma-3-27b-it",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/google-deepmind/gemma"
+      }
+    },
+    {
+      "n": "Gemma 3 9B",
+      "p": "Google",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "3-9B",
+      "hf_slug": "google/gemma-3-12b-it",
+      "gh_repo": "google-deepmind/gemma",
+      "mc": 2,
+      "sc": 0,
+      "td": 0,
+      "se": 1,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/google/gemma-3-12b-it",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "card-data only, no substantive README",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00",
+          "last_auto_error": "readme not fetched",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/google-deepmind/gemma",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Google)",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/google/gemma-3-12b-it",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/google-deepmind/gemma"
+      }
+    },
+    {
+      "n": "Phi-4 14B",
+      "p": "Microsoft",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "4-14B",
+      "hf_slug": "microsoft/phi-4",
+      "gh_repo": "microsoft/phi-cookbook",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 1,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/microsoft/phi-4",
+          "captured_at": "2026-05-30",
+          "content_hash": "4cc56faa6a5bcbde",
+          "confidence": "high",
+          "note": "9 markers, 13747 chars",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/microsoft/phi-4",
+          "captured_at": "2026-05-30",
+          "content_hash": "4cc56faa6a5bcbde",
+          "confidence": "high",
+          "note": "2 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00",
+          "last_auto_error": "gh repo fetch no-response",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Microsoft)",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/microsoft/phi-4",
+        "td": "https://huggingface.co/microsoft/phi-4",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Phi-4 multimodal",
+      "p": "Microsoft",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "4-mm",
+      "hf_slug": "microsoft/Phi-4-multimodal-instruct",
+      "gh_repo": "microsoft/phi-cookbook",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 1,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "c79dc706ea8478e9",
+          "confidence": "high",
+          "note": "9 markers, 65337 chars",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "c79dc706ea8478e9",
+          "confidence": "high",
+          "note": "2 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00",
+          "last_auto_error": "gh repo fetch no-response",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Microsoft)",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct",
+        "td": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Nemotron 4 340B",
+      "p": "NVIDIA",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "4-340B",
+      "hf_slug": "nvidia/Nemotron-4-340B-Instruct",
+      "gh_repo": "NVIDIA/Megatron-LM",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 1,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/nvidia/Nemotron-4-340B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "9bc52ee616fe4489",
+          "confidence": "high",
+          "note": "8 markers, 12774 chars",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/nvidia/Nemotron-4-340B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "9bc52ee616fe4489",
+          "confidence": "high",
+          "note": "4 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/NVIDIA/Megatron-LM/blob/main/SECURITY.md",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "SECURITY.md present",
+          "last_auto_attempt": "2026-05-30T11:15:51+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "NVIDIA: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:50+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/nvidia/Nemotron-4-340B-Instruct",
+        "td": "https://huggingface.co/nvidia/Nemotron-4-340B-Instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/NVIDIA/Megatron-LM/blob/main/SECURITY.md"
+      }
+    },
+    {
+      "n": "Kimi K2 (open)",
+      "p": "Moonshot",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "K2",
+      "hf_slug": "moonshotai/Kimi-K2-Instruct",
+      "gh_repo": "MoonshotAI/Kimi-K2",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "72e2785dbd9ada93",
+          "confidence": "high",
+          "note": "3 markers, 25461 chars",
+          "last_auto_attempt": "2026-05-30T11:15:51+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no training-data section detected",
+          "last_auto_attempt": "2026-05-30T11:15:51+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/MoonshotAI/Kimi-K2",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:51+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Moonshot: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:51+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
+        "td": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/MoonshotAI/Kimi-K2"
+      }
+    },
+    {
+      "n": "Yi-Large 2",
+      "p": "01.AI",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "Large-2",
+      "hf_slug": "01-ai/Yi-1.5-34B-Chat",
+      "gh_repo": "01-ai/Yi",
+      "mc": 2,
+      "sc": 0,
+      "td": 1,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat",
+          "captured_at": "2026-05-30",
+          "content_hash": "5b245685718cc62f",
+          "confidence": "high",
+          "note": "partial: 2 markers, 5593 chars",
+          "last_auto_attempt": "2026-05-30T11:15:51+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat",
+          "captured_at": "2026-05-30",
+          "content_hash": "5b245685718cc62f",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:51+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/01-ai/Yi",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:52+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "01.AI: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:51+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat",
+        "td": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/01-ai/Yi"
+      }
+    },
+    {
+      "n": "Falcon 3 180B",
+      "p": "TII",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "3-180B",
+      "hf_slug": "tiiuae/Falcon3-10B-Instruct",
+      "gh_repo": "tiiuae/Falcon3",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 1,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "7caa770e6eed30c8",
+          "confidence": "high",
+          "note": "4 markers, 12494 chars",
+          "last_auto_attempt": "2026-05-30T11:15:52+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "7caa770e6eed30c8",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:52+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:52+00:00",
+          "last_auto_error": "gh repo fetch no-response",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "TII: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:52+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct",
+        "td": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Falcon 3 40B",
+      "p": "TII",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "3-40B",
+      "hf_slug": "tiiuae/Falcon3-10B-Instruct",
+      "gh_repo": "tiiuae/Falcon3",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 1,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "7caa770e6eed30c8",
+          "confidence": "high",
+          "note": "4 markers, 12494 chars",
+          "last_auto_attempt": "2026-05-30T11:15:52+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "7caa770e6eed30c8",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:52+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:52+00:00",
+          "last_auto_error": "gh repo fetch no-response",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "TII: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:52+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct",
+        "td": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Command R+ (open)",
+      "p": "Cohere",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "R+-open",
+      "hf_slug": "CohereForAI/c4ai-command-r-plus-08-2024",
+      "gh_repo": "cohere-ai/cohere-python",
+      "mc": 2,
+      "sc": 0,
+      "td": 2,
+      "se": 1,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/CohereForAI/c4ai-command-r-plus-08-2024",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "card-data only, no substantive README",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00",
+          "last_auto_error": "readme not fetched",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/cohere-ai/cohere-python",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Cohere)",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/CohereForAI/c4ai-command-r-plus-08-2024",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/cohere-ai/cohere-python"
+      }
+    },
+    {
+      "n": "DBRX",
+      "p": "Databricks",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "v1",
+      "hf_slug": "databricks/dbrx-instruct",
+      "gh_repo": "databricks/dbrx",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00",
+          "last_auto_error": "hf api no-response",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00",
+          "last_auto_error": "readme not fetched",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00",
+          "last_auto_error": "gh repo fetch no-response",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Databricks: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "OLMo 2 32B",
+      "p": "AI2",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "2-32B",
+      "hf_slug": "allenai/OLMo-2-1124-13B-Instruct",
+      "gh_repo": "allenai/OLMo",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 1,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/allenai/OLMo-2-1124-13B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "ca667a7d680a0165",
+          "confidence": "high",
+          "note": "6 markers, 9360 chars",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/allenai/OLMo-2-1124-13B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "ca667a7d680a0165",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/allenai/OLMo",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:54+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "AI2: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:53+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/allenai/OLMo-2-1124-13B-Instruct",
+        "td": "https://huggingface.co/allenai/OLMo-2-1124-13B-Instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/allenai/OLMo"
+      }
+    },
+    {
+      "n": "OLMo 2 7B",
+      "p": "AI2",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "2-7B",
+      "hf_slug": "allenai/OLMo-2-1124-7B-Instruct",
+      "gh_repo": "allenai/OLMo",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 1,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "1c64f5f2cb6158d2",
+          "confidence": "high",
+          "note": "6 markers, 9339 chars",
+          "last_auto_attempt": "2026-05-30T11:15:54+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "1c64f5f2cb6158d2",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:54+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/allenai/OLMo",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:54+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "AI2: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:54+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct",
+        "td": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/allenai/OLMo"
+      }
+    },
+    {
+      "n": "Stable LM 3",
+      "p": "Stability AI",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "3",
+      "hf_slug": "stabilityai/stablelm-2-12b-chat",
+      "gh_repo": "Stability-AI/StableLM",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/stabilityai/stablelm-2-12b-chat",
+          "captured_at": "2026-05-30",
+          "content_hash": "7c7a022801c3b47b",
+          "confidence": "high",
+          "note": "6 markers, 8882 chars",
+          "last_auto_attempt": "2026-05-30T11:15:55+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/stabilityai/stablelm-2-12b-chat",
+          "captured_at": "2026-05-30",
+          "content_hash": "7c7a022801c3b47b",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:55+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/Stability-AI/StableLM",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:55+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Stability AI: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:55+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/stabilityai/stablelm-2-12b-chat",
+        "td": "https://huggingface.co/stabilityai/stablelm-2-12b-chat",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/Stability-AI/StableLM"
+      }
+    },
+    {
+      "n": "Pharia-1 (open)",
+      "p": "Aleph Alpha",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "1",
+      "hf_slug": "Aleph-Alpha/Pharia-1-LLM-7B-control",
+      "gh_repo": "Aleph-Alpha/aleph-alpha-client",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 1,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/Aleph-Alpha/Pharia-1-LLM-7B-control",
+          "captured_at": "2026-05-30",
+          "content_hash": "cb8761ef46f8b540",
+          "confidence": "high",
+          "note": "9 markers, 43482 chars",
+          "last_auto_attempt": "2026-05-30T11:15:55+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/Aleph-Alpha/Pharia-1-LLM-7B-control",
+          "captured_at": "2026-05-30",
+          "content_hash": "cb8761ef46f8b540",
+          "confidence": "high",
+          "note": "5 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:55+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/Aleph-Alpha/aleph-alpha-client",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:56+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Aleph Alpha)",
+          "last_auto_attempt": "2026-05-30T11:15:55+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/Aleph-Alpha/Pharia-1-LLM-7B-control",
+        "td": "https://huggingface.co/Aleph-Alpha/Pharia-1-LLM-7B-control",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/Aleph-Alpha/aleph-alpha-client"
+      }
+    },
+    {
+      "n": "MPT-30B",
+      "p": "MosaicML",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "30B",
+      "hf_slug": "mosaicml/mpt-30b-instruct",
+      "gh_repo": "mosaicml/llm-foundry",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:56+00:00",
+          "last_auto_error": "hf api no-response",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:56+00:00",
+          "last_auto_error": "readme not fetched",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/mosaicml/llm-foundry",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:56+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "MosaicML: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:56+00:00"
+        }
+      },
+      "urls": {
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/mosaicml/llm-foundry"
+      }
+    },
+    {
+      "n": "BLOOM 176B",
+      "p": "BigScience",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "176B",
+      "hf_slug": "bigscience/bloom",
+      "gh_repo": "bigscience-workshop/Megatron-DeepSpeed",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/bigscience/bloom",
+          "captured_at": "2026-05-30",
+          "content_hash": "72ee7ca2aa4bb4a0",
+          "confidence": "high",
+          "note": "7 markers, 29510 chars",
+          "last_auto_attempt": "2026-05-30T11:15:56+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/bigscience/bloom",
+          "captured_at": "2026-05-30",
+          "content_hash": "72ee7ca2aa4bb4a0",
+          "confidence": "high",
+          "note": "4 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:56+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/bigscience-workshop/Megatron-DeepSpeed",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "BigScience: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:56+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/bigscience/bloom",
+        "td": "https://huggingface.co/bigscience/bloom",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/bigscience-workshop/Megatron-DeepSpeed"
+      }
+    },
+    {
+      "n": "Granite 3.2 8B",
+      "p": "IBM",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "3.2-8B",
+      "hf_slug": "ibm-granite/granite-3.2-8b-instruct",
+      "gh_repo": "ibm-granite/granite-3.2-language-models",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 1,
+      "tp": 0,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/ibm-granite/granite-3.2-8b-instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "09c8cb37a86a7754",
+          "confidence": "high",
+          "note": "5 markers, 18369 chars",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/ibm-granite/granite-3.2-8b-instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "09c8cb37a86a7754",
+          "confidence": "high",
+          "note": "2 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00",
+          "last_auto_error": "gh repo fetch no-response",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (IBM)",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/ibm-granite/granite-3.2-8b-instruct",
+        "td": "https://huggingface.co/ibm-granite/granite-3.2-8b-instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "Granite 3.2 34B",
+      "p": "IBM",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "3.2-34B",
+      "hf_slug": "ibm-granite/granite-3.2-8b-instruct",
+      "gh_repo": "ibm-granite/granite-3.2-language-models",
+      "mc": 1,
+      "sc": 0,
+      "td": 1,
+      "se": 1,
+      "tp": 0,
+      "rt": 0,
+      "s2": 1,
+      "iso": 1,
+      "vd": 1,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/ibm-granite/granite-3.2-8b-instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "09c8cb37a86a7754",
+          "confidence": "high",
+          "note": "5 markers, 18369 chars",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/ibm-granite/granite-3.2-8b-instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "09c8cb37a86a7754",
+          "confidence": "high",
+          "note": "2 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00",
+          "last_auto_error": "gh repo fetch no-response",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (IBM)",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/ibm-granite/granite-3.2-8b-instruct",
+        "td": "https://huggingface.co/ibm-granite/granite-3.2-8b-instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    },
+    {
+      "n": "InternLM 3",
+      "p": "Shanghai AI Lab",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "3",
+      "hf_slug": "internlm/internlm3-8b-instruct",
+      "gh_repo": "InternLM/InternLM",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/internlm/internlm3-8b-instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": "05952b9d45a7e470",
+          "confidence": "high",
+          "note": "6 markers, 37852 chars",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/internlm/internlm3-8b-instruct",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no training-data section detected",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/InternLM/InternLM",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:58+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Shanghai AI Lab: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:57+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/internlm/internlm3-8b-instruct",
+        "td": "https://huggingface.co/internlm/internlm3-8b-instruct",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/InternLM/InternLM"
+      }
+    },
+    {
+      "n": "Yi-1.5 34B",
+      "p": "01.AI",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "1.5-34B",
+      "hf_slug": "01-ai/Yi-1.5-34B-Chat",
+      "gh_repo": "01-ai/Yi",
+      "mc": 2,
+      "sc": 0,
+      "td": 1,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat",
+          "captured_at": "2026-05-30",
+          "content_hash": "5b245685718cc62f",
+          "confidence": "high",
+          "note": "partial: 2 markers, 5593 chars",
+          "last_auto_attempt": "2026-05-30T11:15:58+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat",
+          "captured_at": "2026-05-30",
+          "content_hash": "5b245685718cc62f",
+          "confidence": "high",
+          "note": "1 markers, named datasets present",
+          "last_auto_attempt": "2026-05-30T11:15:58+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/01-ai/Yi",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:59+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "01.AI: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:58+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat",
+        "td": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/01-ai/Yi"
+      }
+    },
+    {
+      "n": "Mistral NeMo",
+      "p": "Mistral / NVIDIA",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "F",
+      "v": "NeMo",
+      "hf_slug": "mistralai/Mistral-Nemo-Instruct-2407",
+      "gh_repo": "mistralai/mistral-inference",
+      "mc": 1,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 1,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407",
+          "captured_at": "2026-05-30",
+          "content_hash": "445377992e740402",
+          "confidence": "high",
+          "note": "3 markers, 10514 chars",
+          "last_auto_attempt": "2026-05-30T11:15:59+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no training-data section detected",
+          "last_auto_attempt": "2026-05-30T11:15:59+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "auto",
+          "source_url": "https://github.com/mistralai/mistral-inference",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no SECURITY.md or registered security policy",
+          "last_auto_attempt": "2026-05-30T11:15:59+00:00"
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "F (Mistral AI)",
+          "last_auto_attempt": "2026-05-30T11:15:59+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407",
+        "td": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "vd": "https://github.com/mistralai/mistral-inference"
+      }
+    },
+    {
+      "n": "Hermes 3",
+      "p": "Nous Research",
+      "o": "Open-weight",
+      "t": "Open",
+      "cop": "N",
+      "v": "3",
+      "hf_slug": "NousResearch/Hermes-3-Llama-3.1-70B",
+      "gh_repo": "NousResearch/Hermes-3-Llama-3.1",
+      "mc": 2,
+      "sc": 0,
+      "td": 0,
+      "se": 0,
+      "tp": 0,
+      "rt": 0,
+      "s2": 0,
+      "iso": 0,
+      "vd": 0,
+      "dpa": 0,
+      "eu": 0,
+      "nt": 0,
+      "last_verified": "2026-05-30",
+      "_provenance": {
+        "mc": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-70B",
+          "captured_at": "2026-05-30",
+          "content_hash": "a3844d949e9d5959",
+          "confidence": "high",
+          "note": "partial: 2 markers, 11934 chars",
+          "last_auto_attempt": "2026-05-30T11:15:59+00:00"
+        },
+        "sc": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "td": {
+          "mode": "auto",
+          "source_url": "https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-70B",
+          "captured_at": "2026-05-30",
+          "content_hash": null,
+          "confidence": "high",
+          "note": "no training-data section detected",
+          "last_auto_attempt": "2026-05-30T11:15:59+00:00"
+        },
+        "se": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "tp": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "rt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "s2": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "iso": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "vd": {
+          "mode": "manual",
+          "last_auto_attempt": "2026-05-30T11:15:59+00:00",
+          "last_auto_error": "gh repo fetch no-response",
+          "source_url": null,
+          "captured_at": null,
+          "note": null,
+          "content_hash": null
+        },
+        "dpa": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "eu": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "nt": {
+          "mode": "manual",
+          "captured_at": null
+        },
+        "cop": {
+          "mode": "auto",
+          "source_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+          "captured_at": "2026-05-30",
+          "content_hash": "60769cafa0dcfa89",
+          "note": "Nous Research: known non-signatory",
+          "last_auto_attempt": "2026-05-30T11:15:59+00:00"
+        }
+      },
+      "urls": {
+        "mc": "https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-70B",
+        "td": "https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-70B",
+        "cop": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+      }
+    }
   ]
 }
