@@ -1,0 +1,1 @@
+{"timestamp": "2026-05-30T11:31:00+00:00", "changes": [{"field": "mc", "from_value": 1, "to_value": 1, "from_method": "unverified", "to_method": "automated", "source_url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct", "api_url": "https://huggingface.co/api/models/meta-llama/Llama-3.3-70B-Instruct", "content_hash": "13e63ea3586db152", "note": null}]}
